@@ -289,9 +289,11 @@ def logincheck(request):
                   if user is not None:
                      auth.login(request, user) 
                      if User.objects.filter(last_name="ph",username=username).exists():
-                        return render(request, 'phome.html')   
+                        
+                        return redirect('phome') 
                      else:    
-                         return render(request, 'uhome.html') 
+                         return redirect('uhome')
+                          
                   else:
                       
                       messages.info(request, 'invalid username/password')
@@ -306,9 +308,9 @@ def logincheck(request):
                  if user is not None:
                      auth.login(request, user) 
                      if User.objects.filter(last_name="ph",username=username).exists():
-                        return render(request, 'phome.html')
+                        return redirect('phome')
                      else:
-                         return render(request,'uhome.html')
+                         return redirect('uhome')
                  else:
                      messages.info(request, 'invalid username/password')
                      return render(request, 'indexlogin1.html')
