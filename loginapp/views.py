@@ -64,6 +64,35 @@ def payment(request,id):
 def mpayment(request,id):
     s11=medicine.objects.get(id=id)
     return render(request, "payment1.html",{'s11':s11})
+# def usetpwd1(request):
+    
+#     return render(request, "usetpwd.html")    
+def usetpwd(request):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        pass1 = request.POST['pswd1']
+        pass2 = request.POST['pswd2']
+        pass3 = request.POST['pswd3']
+        user = auth.authenticate(username = uname, password = pass1)
+        if user is not None:
+            u = User.objects.get(username = uname)
+            
+        
+            if pass2 == pass3:
+                u.set_password(pass3)
+                u.save()
+                messages.info(request,'Your Password Changed ,Please Login')
+                return render(request,'indexlogin1.html')
+            else:
+                messages.info(request,'Password Missmatch...')
+                return redirect('usetpwd')
+           
+        else:
+            messages.info(request,'Invalid Password...')
+            return redirect('change_password')
+
+    else:
+        return render(request,'usetpwd.html')    
 def payment1(request,id):
     if request.method == 'POST':
         unam= request.POST['unam']
@@ -219,7 +248,23 @@ def deleteph(request,uname):
     u=User.objects.get(username=uname)
     u.is_active = False
     u.save()
-    return redirect('admvwph')       
+    return redirect('admvwph')  
+def deletefood(request):
+    j = food.objects.filter()
+    return render(request,'deletefood.html',{'j':j})   
+def deletefood1(request,id):
+    cc=food.objects.get(id=id)
+    
+    cc.delete()
+    return redirect( 'deletefood')
+def deletemedicine(request):
+    j1 = medicine.objects.filter()
+    return render(request,'deletemedicine.html',{'j1':j1})
+def deletemedicine1(request,id):
+    cc1=medicine.objects.get(id=id)
+    
+    cc1.delete()
+    return redirect( 'deletemedicine')                   
 def signupp(request):
    if request.method == 'POST':
         fname = request.POST['fname']

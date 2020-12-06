@@ -191,12 +191,12 @@
                             <a href="/phome">
                                 <i class="fas fa-desktop"></i>Home</a></li>
                         
-                            <li class="active">
+                            <li >
                                 <a href="/confirmuser">
                                     
                                     <i class="fas fa-user"></i>User Confirmation</a>
                             </li>
-                        <li >
+                        <li>
                             <a href="/addfood">
                                 
                                 <i class="fas fa-shopping-basket"></i>Food</a>
@@ -527,7 +527,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                   <b>Registered Users</b> 
+                                   <b></b> 
                                     <!-- <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/news/'">
                                         <i class="zmdi zmdi-plus"></i>Covid Updates</button> -->
                                 
@@ -1116,32 +1116,31 @@
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Username</th>
-                                                <th>Mobile</th>
-                                                <th>Panchayat</th>
-                                                <th></th>
-                                                <th>Reject</th>
+                                                <th>Food Item</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                                
+                                                <th>Remove</th>
                                                 <!-- <th>Status</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for f in h %}
+                                            {% for f in j %}
                                             <tr>
-                                                <td>{{f.fname}}</td>
-                                                <td>{{f.uname}}</td>
-                                                <td>{{f.mob}}</td>
+                                                <td>{{f.fitem}}</td>
+                                                <td>{{f.fprice}}</td>
+                                                <td class="process">{{f.status}}</td>
                                                 
-                                                <td>{{f.pname}}</td>
+                                                
 
                                                 <td>
 
-                                                    <form method="POST" action='/deleteuser/{{f.uname}}'>
+                                                    <form method="POST" action='/deletefood1/{{f.id}}'>
                                                         {% csrf_token %}
                                                           <input type="hidden" value="{{f.id}}" name="id">
                                                           <!-- <input type="hidden" value="e.uname" name="uname"> -->
-                                                          <td><input  type="submit" 
-                                                            style="color: #ffffff;background:green;border-radius: 10em;height: 2em;" value="     Reject user   ">  
+                                                          <input  type="submit" 
+                                                            style="color: #ffffff;background:green;border-radius: 10em;height: 2em;" value="     Remove   ">  
                                                              
                                                              </td></form>
                                                     
@@ -1156,7 +1155,7 @@
                                                             <i class="zmdi zmdi-more"></i>
                                                         </button> -->
                                                     
-                                                </td>
+                                                
                                                 <!-- <td class="process">Processed</td> -->
                                             </tr>
                                            
