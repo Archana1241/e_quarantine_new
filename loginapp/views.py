@@ -27,36 +27,122 @@ def reguser2(request):
     return render(request, "reguser2.html")  
 def regpanchayat2(request):
     return render(request, "regpanchayat2.html") 
+def foodorder(request):
+    co = food.objects.filter()
+    return render(request, "foodorder.html",{'co':co}) 
+def medicineorder(request):
+    co1 = medicine.objects.filter()
+    return render(request, "medicineorder.html",{'co1':co1}) 
+def vwdoctor(request):
+    do = doctor.objects.filter()
+    return render(request, "vwdoctor.html",{'do':do}) 
+def userfoodorder(request,id):
+    s=food.objects.get(id=id)
+    return render(request, "userfoodorder.html",{'s':s}) 
+def usermedorder(request,id):
+    s2=medicine.objects.get(id=id)
+    return render(request, "usermedorder.html", {'s2':s2})
+def payment(request,id):
+    s1=food.objects.get(id=id)
+    return render(request, "payment.html",{'s1':s1})
+def mpayment(request,id):
+    s11=medicine.objects.get(id=id)
+    return render(request, "payment1.html",{'s11':s11})
+def payment1(request,id):
+    if request.method == 'POST':
+        unam= request.POST['unam']
+        stat = request.POST['stat']
+         
+        pa1=food.objects.get(id=id)
+        pa1.name=unam
+        pa1.save()
+        pa1.status=stat
+        pa1.save()
+       
+    return redirect('payment',id) 
+def payment2(request,id):
+    if request.method == 'POST':
+        unam1= request.POST['unam1']
+        stat1 = request.POST['stat1']
+         
+        pa2=medicine.objects.get(id=id)
+        pa2.name=unam1
+        pa2.save()
+        pa2.status=stat1
+        pa2.save()
+       
+    return redirect('mpayment',id)     
+
+# def pay(request):
+    
+#     # if request.method == 'POST':
+#     #     # pamt= request.POST['pamt']
+        
+#     #     # cname = request.POST['cname']
+#     #     cno = request.POST['cno'] 
+#     #     expno= request.POST['expno']
+#     #     cvv= request.POST['cvv']  
+#     #     paa=payment(cno=cno,expno=expno,cvv=cvv)
+#     #     paa.save()
+       
+#     return render(request, "payment.html") 
+def addfood1(request):   
+    # sp = User.objects.filter(last_name="ph")
+    return render (request,'addfood.html')
 def addfood(request):
     if request.method == 'POST':
+        uname = request.POST['uname']
+        sp = request.POST['sp']
         fitem = request.POST['fitem']
-        fquantity= request.POST['fquantity']
+        
         fprice = request.POST['fprice']  
-        fod=food(fitem=fitem,fquantity=fquantity,fprice=fprice)
+        fod=food(uname=uname,pname=sp,fitem=fitem,fprice=fprice,status="not ordered")
         fod.save()
+        sp= User.objects.filter(last_name="ph")
     return render(request, "addfood.html") 
 def addmedicine(request):
     if request.method == 'POST':
+        uname = request.POST['uname']
+        sp = request.POST['sp']
         mname = request.POST['mname']
-        mquantity= request.POST['mquantity']
+       
         mprice = request.POST['mprice']  
-        med=medicine(mname=mname,mquantity=mquantity,mprice=mprice)
+        med=medicine(uname=uname,pname=sp,mname=mname,mprice=mprice,status="not ordered")
         med.save()
     return render(request, "addmedicine.html") 
 def care(request):
+    
+    return render(request, "care.html")     
+def care1(request):
     if request.method == 'POST':
+        res=request.FILES.get('pi1',True)
+        if res==False:
+            pass
+        else:
+            fs=FileSystemStorage()
+            fs.save(res.name, res)
+        sp = request.POST['sp']
         dname = request.POST['dname']
         ddep= request.POST['ddep']
         dmob = request.POST['dmob']  
-        dep=doctor(dname=dname,ddep=ddep,dmob=dmob)
+        dep=doctor(pname=sp,dname=dname,ddep=ddep,dmob=dmob,img=res)
         dep.save()
     return render(request, "care.html") 
 def phome(request):
+    # h = u_reg.objects.filter()
     
-    # pff=cnews.objects.filter()
-    # s=user.username
-    # j=p_reg.objects.filter(uname=s)
     return render(request, "phome.html")    
+def confirmuser(request):
+    h = u_reg.objects.filter(status="1")
+    return render(request, "confirmuser.html",{'h':h})
+def deleteuser(request,uname):
+    d=u_reg.objects.get(uname=uname)
+    d.status = 0
+    d.save()
+    u=User.objects.get(username=uname)
+    u.is_active = False
+    u.save()
+    return redirect('confirmuser')           
 def uhome(request):
     return render(request, "uhome.html")   
 def indexadmin(request):
@@ -153,7 +239,7 @@ def signupph(request):
             if User.objects.filter(username=uname).exists():                                                                 
                 messages.info(request,'Username already exist')
                 return render(request, 'regpanchayat2.html') 
-            user = User.objects.create_user(username=uname, password=pwdd, email=uname, first_name=cperson, last_name="ph")
+            user = User.objects.create_user(username=uname, password=pwdd, email=uname, first_name=pname, last_name="ph")
             user.save()    
             phr=p_reg(state=state,district=district,pname=pname,cperson=cperson,mob=mob,uname=uname,status='1')
             phr.save()

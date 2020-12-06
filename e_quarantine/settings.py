@@ -143,8 +143,10 @@ MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static'),

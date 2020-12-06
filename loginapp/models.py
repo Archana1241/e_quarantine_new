@@ -38,20 +38,36 @@ class cnews(models.Model):
     death = models.CharField(max_length=100)
 
 class food(models.Model):
+    uname=models.CharField(max_length=100)
+    name=models.CharField(max_length=100)
+    pname =models.CharField(max_length=100)
     fitem = models.CharField(max_length=100)
-    fquantity = models.IntegerField()
+    
     fprice=models.IntegerField()
+    status =models.TextField()
+
 
 class medicine(models.Model):
+    uname=models.CharField(max_length=100)
+    pname =models.CharField(max_length=100)
+    name=models.CharField(max_length=100)
     mname = models.CharField(max_length=100)
-    mquantity = models.IntegerField()
+   
     mprice=models.IntegerField()
+    status =models.TextField()
 
 class doctor(models.Model):
+    pname =models.CharField(max_length=100)
     dname = models.CharField(max_length=100)
     ddep = models.CharField(max_length=100)
     dmob=models.BigIntegerField()
+    img=models.ImageField(upload_to='media/pics',blank=True)
 
-    
+class payment(models.Model):  
+    pamt=models.IntegerField()
+    cname=models.CharField(max_length=100)
+    cno=models.IntegerField()
+    expno=models.CharField(max_length=100)
+    cvv=models.IntegerField()
     
        

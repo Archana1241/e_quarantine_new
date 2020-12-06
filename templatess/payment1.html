@@ -23,7 +23,7 @@
     <link href="{% static 'vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <!-- <link href="{% static 'vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all"> -->
+    <!-- <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> -->
     <link href="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/wow/animate.css' %}" rel="stylesheet" media="all">
     <link href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
@@ -43,10 +43,9 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <!-- <a class="logo" href="index.html">
+                        <a class="logo" href="index.html">
                             <img src="/static/images/icon/logo.png" alt="CoolAdmin" />
-                        </a> -->
-                        <h3 style="color:black">    E-Quarantine </h3>
+                        </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -58,7 +57,7 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <!-- <li class="has-sub">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -75,18 +74,18 @@
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>
                             </ul>
-                        </li> -->
+                        </li>
                         <li>
                             <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Users</a>
+                                <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
                             <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="far fa-check-square"></i>News</a>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
                             <a href="calendar.html">
@@ -159,10 +158,9 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <!-- <a href="#">
-                    <img src="/static/images/icon/logo.png" alt="Cool Admin" />
-                </a> -->
-                <h3 style="color:black;">    E-Quarantine </h3>
+                <a href="#">
+                    <h3 style="color:black;">   E-Quarantine </h3>
+                </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -185,33 +183,47 @@
                                 </li>
                             </ul>
                         </li> -->
+                        <!-- <li>
+                            <a href="chart.html">
+                                <i class="fas fa-chart-bar"></i>Charts</a>
+                        </li>
                         <li>
-                            <a href="/phome">
-                                <i class="fas fa-desktop"></i>Home</a></li>
-                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a>
+                        </li>
                         <li class="active">
-                            <a href="/addfood">
-                                
-                                <i class="fas fa-shopping-basket"></i>Food</a>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a>
                         </li>
                         <li>
-                            <a href="/addmedicine">
-                                <i class="fas fa-copy"></i>Medicine</a>
-                            <!-- <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a> -->
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
-                        <li class="">
-                            <a href="/care">
-                                <i class="fas fa-tachometer-alt"></i>Health care</a>
-                            <!-- <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a> -->
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                        </li> -->
+                        <li>
+                            <a href="/uhome">
+                                <i class="fas fa-home"></i>Home</a></li>
+                        <li>
+                        <li>
+                            <a href="/foodorder">
+                                <i class="fas fa-coffee"></i>Food</a>
+                        </li>
+                        <li>
+                        
+                            <a href="/medicineorder">
+                                <i class="fas fa-plus-circle"></i>Medicine</a>
+                        </li>
+                        <li class="active">
+                            <a href="/vwdoctor">
+                                <i class="fas fa-ambulance"></i>Health Care</a>
                         </li>
                        
                         <li>
                             <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
-                            <!-- <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a> -->
                         </li>
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -280,13 +292,16 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
+                            <!-- <form class="form-header" action="" method="POST"> -->
+                              
                                 <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
-                                
+                                <!-- <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button> -->
                                 <div class="account-dropdown__footer">
-                                    <h6 style="color: red;">  {{user.first_name}} Gramapanchayat</h6>
+                                    <h6 style="color: red;">Welcome {{user.username}}</h6>
                                  </div>
-                            </form>
+                            <!-- </form> -->
                             <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
@@ -404,9 +419,9 @@
                                     <div class="account-item clearfix js-item-menu">
                                         <!-- <div class="image">
                                             <img src="/static/images/icon/avatar-01.jpg" alt="John Doe" />
-                                        </div> -->
-                                        <!-- <div class="content">
-                                            <a class="js-acc-btn" href="#">Logout</a>
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">john doe</a>
                                         </div> -->
                                         <div>
                                             <a href="/logout">
@@ -459,83 +474,73 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="overview-wrap">
-                                <!-- <h3 class="title-1">Registered Users</h3> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                
-                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href=''">
-                                    
-                                    Edit/Delete</button><br>
-                            </div>
-                            <br><br><br><br>
-                            <!-- <div class="col-lg-6"> -->
-                                <!-- <div class="card"> -->
-                                    <!-- <div class="card-header">Credit Card</div>  -->
-                                    <!-- <div class="card-body">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">Credit Card</div>
+                                    <div class="card-body">
                                         <div class="card-title">
-                                            <h3 class="text-center title-2">Pay Invoice</h3>
+                                            <h3 class="text-center title-2">Payment</h3>
                                         </div>
                                         <hr>
-                                        <!-- <form action="" method="post" novalidate="novalidate">
-                                            <div class="form-group">
+                                        <form >
+                                            {% csrf_token %}
+                                          
+                                            <!-- <div class="form-group">
                                                 <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
-                                            </div>
+                                                <input  name="pamt" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{s1.fprice}}">
+                                            </div> -->
                                             <div class="form-group has-success">
                                                 <label for="cc-name" class="control-label mb-1">Name on card</label>
-                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
-                                                    autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                                <input  name="cname" type="text" class="form-control cc-name valid" >
                                                 <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                             </div>
                                             <div class="form-group">
                                                 <label for="cc-number" class="control-label mb-1">Card number</label>
-                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true"
-                                                    data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number"
-                                                    autocomplete="cc-number">
+                                                <input  name="cno" type="tel" class="form-control cc-number identified visa" >
                                                 <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                                                        <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
-                                                            data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY"
-                                                            autocomplete="cc-exp">
+                                                        <input  name="expno" type="tel" class="form-control cc-exp"   placeholder="MM / YY"
+                                                           >
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1">Security code</label>
                                                     <div class="input-group">
-                                                        <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code"
-                                                            data-val-cc-cvc="Please enter a valid security code" autocomplete="off">
+                                                        <input  name="cvv" type="tel" class="form-control cc-cvc"  >
 
                                                     </div>
                                                 </div>
                                             </div>
                                             <div>
-                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                <button  class="btn btn-lg btn-info btn-block" onclick="myFunction()">
                                                     <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                                    <span id="payment-button-amount">Pay $100.00</span>
-                                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                                    <span id="payment-button-amount">Make Payment</span>
+                                                    <!-- <span id="payment-button-sending" style="display:none;">Sending…</span> -->
                                                 </button>
+                                                <script>
+                                                    function myFunction()
+                                                    {
+                                                        alert("Payment Success")
+                                                       
+                                                    }
+                                                </script>
                                             </div>
-                                        </form> -->
-                                    <!-- </div>  -->
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <!-- <div class="card">
-                                    <div class="card-header">
+                                <!-- <div class="card"> -->
+                                    <!-- <div class="card-header">
                                         <strong>Company</strong>
                                         <small> Form</small>
-                                    </div>
-                                    <div class="card-body card-block">
+                                    </div> -->
+                                    <!-- <div class="card-body card-block">
                                         <div class="form-group">
                                             <label for="company" class=" form-control-label">Company</label>
                                             <input type="text" id="company" placeholder="Enter your company name" class="form-control">
@@ -566,11 +571,11 @@
                                             <label for="country" class=" form-control-label">Country</label>
                                             <input type="text" id="country" placeholder="Country name" class="form-control">
                                         </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
+                                <!-- </div> -->
                             </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Basic Form</strong> Elements
                                     </div>
@@ -699,7 +704,7 @@
                                                         <option value="10">Option #10</option>
                                                     </select>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label class=" form-control-label">Radios</label>
@@ -810,8 +815,8 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
-                                <!-- <div class="card">
+                                </div>
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Inline</strong> Form
                                     </div>
@@ -835,10 +840,10 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Horizontal</strong> Form
                                     </div>
@@ -872,8 +877,8 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
-                                <!-- <div class="card">
+                                </div>
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Normal</strong> Form
                                     </div>
@@ -899,8 +904,8 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
-                                <!-- <div class="card">
+                                </div>
+                                <div class="card">
                                     <div class="card-header">
                                         Input
                                         <strong>Grid</strong>
@@ -967,80 +972,52 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="card">
                                     <div class="card-header">
-                                        
-                                        <strong>ADD FOOD </strong>
+                                        Input
+                                        <strong>Sizes</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                       
-                                        <form action="/addfood/" method="post" class="form-horizontal">
-                                           
-                                            {% csrf_token %}
-                                            
-                                            <!-- <div class="row form-group">
-                                               
-                                                <div class="col col-sm-5">
-                                                    <label for="input-small" class=" form-control-label">Food Type</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                   
-                                                    <input type="text" id="input-small" name="ftype"  class="form-control" placeholder="">
-                                                </div>
-                                            </div> -->
-                                            <input type="hidden" name =uname value={{user.username}}>
-                                            <input type="hidden" name =sp value={{user.first_name}}>
+                                        <form action="" method="post" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
-                                                    <label for="input-normal" class=" form-control-label">Food Item</label>
+                                                    <label for="input-small" class=" form-control-label">Small Input</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="fitem"   class="form-control" placeholder="eg:rice,chappathi etc">
+                                                    <input type="text" id="input-small" name="input-small" placeholder=".form-control-sm" class="input-sm form-control-sm form-control">
                                                 </div>
                                             </div>
-                                            
-                                            <!-- <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Available Quantity</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="fquantity"   class="form-control" placeholder="count">
-                                                </div>
-                                            </div> -->
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Price </label>
+                                                    <label for="input-normal" class=" form-control-label">Normal Input</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="fprice"   class="form-control" placeholder="amount">
+                                                    <input type="text" id="input-normal" name="input-normal" placeholder="Normal" class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm" value="Submit" onclick="myFunction()">
-                                                     <i class="fa fa-dot-circle-o"></i> Add
-                                                 </button>
-                                                 <script>
-                                                     function myFunction()
-                                                     {
-                                                         alert("Added Successfully")
-                                                     }
-                                                 </script>
-                                                <!-- <button type="reset" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-ban"></i> Reset
-                                                </button>  -->
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label">Large Input</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-large" name="input-large" placeholder=".form-control-lg" class="input-lg form-control-lg form-control">
+                                                </div>
                                             </div>
-                                        
-                                            
                                         </form>
-                                 
                                     </div>
-                                   
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Reset
+                                        </button>
+                                    </div>
                                 </div>
-                                
                             </div>
                             <div class="col-lg-6">
-                                <!-- <div class="card">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Validation states</strong> Form
                                     </div>
@@ -1054,10 +1031,10 @@
                                             <input type="text" id="inputIsInvalid" class="is-invalid form-control">
                                         </div>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Validation states</strong> with optional icons
                                         <em>(deprecated)</em>
@@ -1076,10 +1053,10 @@
                                             <input type="text" id="inputError2i" class="form-control-danger form-control">
                                         </div>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Icon/Text</strong> Groups
                                     </div>
@@ -1126,10 +1103,10 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         <strong>Buttons</strong> Groups
                                     </div>
@@ -1184,8 +1161,8 @@
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
                                     </div>
-                                </div> -->
-                            </div>
+                                </div>
+                            </div> -->
                             <div class="col-lg-6">
                                 <!-- <div class="card">
                                     <div class="card-header">
@@ -1337,8 +1314,8 @@
                                     </div>
                                 </div> -->
                             </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">
                                         Input Grid for small devices!
                                         <small>
@@ -1396,10 +1373,10 @@
                                         <button class="btn btn-info btn-sm">Action</button>
                                         <button class="btn btn-success btn-sm">Action</button>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">Example Form</div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" class="">
@@ -1435,10 +1412,10 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">Example Form</div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" class="">
@@ -1471,10 +1448,10 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div> -->
-                            </div>
-                            <div class="col-lg-6">
-                                <!-- <div class="card">
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-lg-6">
+                                <div class="card">
                                     <div class="card-header">Example Form</div>
                                     <div class="card-body card-block">
                                         <form action="" method="post" class="">
@@ -1507,8 +1484,8 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div> -->
-                            </div>
+                                </div>
+                            </div> -->
                         </div>
                         <!-- <div class="row">
                             <div class="col-md-12">

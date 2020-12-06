@@ -81,10 +81,15 @@
                                     <span class="bot-line"></span></a> -->
                             </li>
 
-                            
                             <li>
                                
-                                 <a href="/addfood">
+                                <a href="/confirmuser">
+                                   <i class="fas fa-user"></i>
+                                   <span class="bot-line"></span>Users</a> 
+                           </li>
+                            <li>
+                               
+                                 <a href="/addfood1">
                                     <i class="fas fa-shopping-basket"></i>
                                     <span class="bot-line"></span>Food</a> 
                             </li>
@@ -516,9 +521,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="title-4">Welcome 
-                                <!-- {% for g in j %}
-                                <span>John!{{g.pname}}</span>
-                                {% endfor %} -->
+                                
+                                <span>{{user.first_name}} Gramapanchayat</span>
+                               
                             </h1>
                             <hr class="line-seprate">
                         </div>
@@ -672,7 +677,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h3 class="title-5 m-b-35">data table</h3>
+                            <h3 class="title-5 m-b-35">Registered Users</h3>
                             <div class="table-data__tool">
                                 <div class="table-data__tool-left">
                                     <div class="rs-select2--light rs-select2--md">
@@ -717,16 +722,16 @@
                                                     <span class="au-checkmark"></span>
                                                 </label>
                                             </th>
-                                            <th>name</th>
-                                            <th>email</th>
-                                            <th>description</th>
-                                            <th>date</th>
-                                            <th>status</th>
-                                            <th>price</th>
-                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Mobile</th>
+                                            <th>Panchayat</th>
+                                            <th>Status</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for f in h %}
                                         <tr class="tr-shadow">
                                             <td>
                                                 <label class="au-checkbox">
@@ -734,7 +739,7 @@
                                                     <span class="au-checkmark"></span>
                                                 </label>
                                             </td>
-                                            <td>Lori Lynch</td>
+                                            <td>{{f.fname}}</td>
                                             <td>
                                                 <span class="block-email">lori@example.com</span>
                                             </td>
@@ -761,8 +766,9 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="spacer"></tr>
-                                        <tr class="tr-shadow">
+                                        {% endfor %}
+                                        <!-- <tr class="spacer"></tr> -->
+                                        <!-- <tr class="tr-shadow">
                                             <td>
                                                 <label class="au-checkbox">
                                                     <input type="checkbox">
@@ -795,8 +801,8 @@
                                                     </button>
                                                 </div>
                                             </td>
-                                        </tr>
-                                        <tr class="spacer"></tr>
+                                        </tr> -->
+                                        <!-- <tr class="spacer"></tr>
                                         <tr class="tr-shadow">
                                             <td>
                                                 <label class="au-checkbox">
@@ -865,7 +871,7 @@
                                                     </button>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>

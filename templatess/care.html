@@ -207,12 +207,12 @@
                                 <i class="far fa-check-square"></i>Forms</a> -->
                         </li>
                        
-                        <li>
+                        <!-- <li>
                             <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a>
-                            <!-- <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a> -->
-                        </li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>Maps</a> 
+                        </li>   -->
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
@@ -280,11 +280,11 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" action="/care/" method="POST">
+                            <form class="form-header" action="" method="POST">
                                 <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
                                 
                                 <div class="account-dropdown__footer">
-                                    <h6 style="color: red;">  {{user.username}}</h6>
+                                    <h6 style="color: red;">  {{user.first_name}} Gramapanchayat</h6>
                                  </div>
                             </form>
                             <div class="header-button">
@@ -975,7 +975,7 @@
                                     </div>
                                     <div class="card-body card-block">
                                        
-                                        <form action="" method="post" class="form-horizontal">
+                                        <form action="/care1/" method="post" enctype="multipart/form-data" class="form-horizontal">
                                            
                                             {% csrf_token %}
                                             
@@ -989,12 +989,31 @@
                                                     <input type="text" id="input-small" name="ftype"  class="form-control" placeholder="">
                                                 </div>
                                             </div> -->
+                                            <!-- <input type="hidden" name =uname value={{user.username}}> -->
+                                            <input type="hidden" name =sp value={{user.first_name}}>
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
                                                     <label for="input-normal" class=" form-control-label">Doctor Name</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="dname"   class="form-control" >
+                                                    <input type="text" id="input-normal" name="dname"   class="form-control">
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label">Available Quantity</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-large" name="fquantity"   class="form-control" placeholder="count">
+                                                </div>
+                                            </div> -->
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label">Upload photo</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="file" name="pi1"   class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -1002,15 +1021,16 @@
                                                     <label for="input-large" class=" form-control-label">Department</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="ddep"   class="form-control" >
+                                                    <input type="text" id="input-large" name="ddep"   class="form-control">
                                                 </div>
                                             </div>
+                                            
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Contact Number</label>
+                                                    <label for="input-large" class=" form-control-label">Mobile</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="dmob"   class="form-control" >
+                                                    <input type="text" id="input-large" name="dmob"   class="form-control">
                                                 </div>
                                             </div>
                                             <div class="card-footer">

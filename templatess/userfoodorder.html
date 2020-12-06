@@ -185,26 +185,48 @@
                                 </li>
                             </ul>
                         </li> -->
-                        <li>
-                            <a href="/phome">
+                        <!-- <li>
+                            <a href="/home">
                                 <i class="fas fa-desktop"></i>Home</a></li>
-                        <li>
-                        <li class="active">
+                         <li> -->
+                        <!-- <li class="active">
                             <a href="/addfood">
                                 
                                 <i class="fas fa-shopping-basket"></i>Food</a>
-                        </li>
-                        <li>
+                        </li>  -->
+                        <!-- <li>
                             <a href="/addmedicine">
                                 <i class="fas fa-copy"></i>Medicine</a>
                             <!-- <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a> -->
-                        </li>
-                        <li class="">
+                        <!-- </li> --> 
+                        <!-- <li class="">
                             <a href="/care">
                                 <i class="fas fa-tachometer-alt"></i>Health care</a>
-                            <!-- <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a> -->
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a> 
+                        </li> --> 
+                        <li>
+                            <a href="/uhome">
+                                <i class="fas fa-home"></i>Home</a></li>
+                        <li>
+                        <li class="active">
+                            <a href="/foodorder">
+                                <i class="fas fa-coffee"></i>Food</a>
+                        </li>
+                        <li>
+                        
+                            <a href="/medicineorder">
+                                <i class="fas fa-plus-circle"></i>Medicine</a>
+                        </li>
+                        <li>
+                            <a href="/vwdoctor">
+                                <i class="fas fa-ambulance"></i>Health Care</a>
+                        </li>
+                       
+                        <li>
+                            <a href="calendar.html">
+                                <i class="fas fa-calendar-alt"></i>Calendar</a>
                         </li>
                        
                         <li>
@@ -284,7 +306,7 @@
                                 <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
                                 
                                 <div class="account-dropdown__footer">
-                                    <h6 style="color: red;">  {{user.first_name}} Gramapanchayat</h6>
+                                    <h6 style="color: red;">  {{user.username}}</h6>
                                  </div>
                             </form>
                             <div class="header-button">
@@ -468,9 +490,9 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href=''">
+                                <!-- <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href=''">
                                     
-                                    Edit/Delete</button><br>
+                                    Edit/Delete</button><br> -->
                             </div>
                             <br><br><br><br>
                             <!-- <div class="col-lg-6"> -->
@@ -971,11 +993,11 @@
                                 <div class="card">
                                     <div class="card-header">
                                         
-                                        <strong>ADD FOOD </strong>
+                                        <strong>FOOD DETAILS</strong>
                                     </div>
                                     <div class="card-body card-block">
                                        
-                                        <form action="/addfood/" method="post" class="form-horizontal">
+                                        <form action="/payment1/{{s.id}}" method="post" class="form-horizontal">
                                            
                                             {% csrf_token %}
                                             
@@ -989,43 +1011,63 @@
                                                     <input type="text" id="input-small" name="ftype"  class="form-control" placeholder="">
                                                 </div>
                                             </div> -->
-                                            <input type="hidden" name =uname value={{user.username}}>
-                                            <input type="hidden" name =sp value={{user.first_name}}>
+                                            <input type="hidden" id="input-normal" name="id" value={{s.id}}  class="form-control">
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
                                                     <label for="input-normal" class=" form-control-label">Food Item</label>
                                                 </div>
+                                                
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="fitem"   class="form-control" placeholder="eg:rice,chappathi etc">
+                                                    <input type="text" id="input-normal" name="fitem" value={{s.fitem}}  class="form-control">
                                                 </div>
                                             </div>
-                                            
+
                                             <!-- <div class="row form-group">
                                                 <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Available Quantity</label>
+                                                    <label for="input-large" class=" form-control-label" >Quantity</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="fquantity"   class="form-control" placeholder="count">
+                                                    <input type="text" id="input-large" name="fprice"  class="form-control" >
+                                                </div>
+                                            </div> -->
+                                            <!-- <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label">Quantity</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-large" name="fquantity"   class="form-control" >
                                                 </div>
                                             </div> -->
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Price </label>
+                                                    <label for="input-large" class=" form-control-label" >Amount</label>
                                                 </div>
                                                 <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="fprice"   class="form-control" placeholder="amount">
+                                                    <input type="text" id="input-large" name="fprice" value="{{s.fprice}}"  class="form-control" >
                                                 </div>
                                             </div>
+                                            <!-- <input type="hidden" id="input-large" name="fprice"  value="{{s.fprice}}"  class="form-control" > -->
+                                            <!-- <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label" >Price</label>
+                                                </div> -->
+                                                <!-- <div class="col col-sm-6"> -->
+                                                    <input type="hidden" id="input-large" name="unam"  value={{user.first_name}}  class="form-control" >
+                                                <!-- </div>
+                                            </div> -->
+                                            <!-- <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label" >Price</label>
+                                                </div>
+                                                <div class="col col-sm-6"> -->
+                                                    <input type="hidden" id="input-large" name="stat"  value="ordered"  class="form-control" >
+                                                <!-- </div> -->
+                                            <!-- </div> -->
                                             <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm" value="Submit" onclick="myFunction()">
-                                                     <i class="fa fa-dot-circle-o"></i> Add
+                                                <button type="submit" class="btn btn-primary btn-sm" value="Submit">
+                                                     <i class="fa fa-dot-circle-o"></i> Confirm
                                                  </button>
-                                                 <script>
-                                                     function myFunction()
-                                                     {
-                                                         alert("Added Successfully")
-                                                     }
-                                                 </script>
+                                                 
                                                 <!-- <button type="reset" class="btn btn-danger btn-sm">
                                                     <i class="fa fa-ban"></i> Reset
                                                 </button>  -->
