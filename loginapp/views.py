@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.views.generic import View
 from django.template.loader import get_template
+import requests
 from . models import u_reg
 from . models import p_reg
 from . models import cnews
@@ -21,6 +22,21 @@ from django.core.files.storage import FileSystemStorage
 def mainhome(request):
     pf = cnews.objects.filter()
     return render(request, "index1.html",{'pf':pf})
+def statistics(request):
+    data=True
+    result = None
+    globalSummary = None
+    countries = None
+    while(data):
+        try:
+            result =requests.get('https://api.covid19api.com/summary')
+            globalSummary=result.json()['Global']
+            countries = result.json()['Countries']
+            data=False
+        except:
+            data=True
+
+    return render(request, "statistics.html",{'globalSummary' : globalSummary, 'countries':countries})    
 def indexlogin1(request):
     return render(request, "indexlogin1.html")    
 def reguser2(request):

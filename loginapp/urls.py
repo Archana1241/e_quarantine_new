@@ -12,6 +12,7 @@ urlpatterns = [
     path('indexlogin1/',views.indexlogin1, name='indexlogin1'),
     path('reguser2/',views.reguser2, name='reguser1'),
     path('regpanchayat2/',views.regpanchayat2, name='regpanchayat2'),
+    path('statistics/',views.statistics,name='statistics'),
     path('signupp/',views.signupp, name='signupp'),
     path('uhome/',views.uhome, name='uhome'),
     path('phome/<str:uname>',views.phome, name='phome'),
