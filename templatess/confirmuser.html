@@ -43,9 +43,10 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <!-- <a class="logo" href="index.html">
                             <img src="/static/images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
+                        </a> -->
+                        <h3 style="color:black">    E-Quarantine </h3>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
@@ -158,9 +159,10 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <!-- <a href="#">
                     <img src="/static/images/icon/logo.png" alt="Cool Admin" />
-                </a>
+                </a> -->
+                <h3 style="color:black;">    E-Quarantine </h3>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -183,6 +185,37 @@
                                 </li>
                             </ul>
                         </li> -->
+
+
+                        <li>
+                            <a href="/phome">
+                                <i class="fas fa-desktop"></i>Home</a></li>
+                        
+                            <li class="active">
+                                <a href="/confirmuser">
+                                    
+                                    <i class="fas fa-user"></i>User Confirmation</a>
+                            </li>
+                        <li >
+                            <a href="/addfood">
+                                
+                                <i class="fas fa-shopping-basket"></i>Food</a>
+                        </li>
+                        <li>
+                            <a href="/addmedicine">
+                                <i class="fas fa-copy"></i>Medicine</a>
+                            <!-- <a href="table.html">
+                                <i class="fas fa-table"></i>Tables</a> -->
+                        </li>
+                        <li class="">
+                            <a href="/care">
+                                <i class="fas fa-tachometer-alt"></i>Health care</a>
+                            <!-- <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a> -->
+                        </li>
+
+
+
                         <!-- <li>
                             <a href="chart.html">
                                 <i class="fas fa-chart-bar"></i>Users</a>
@@ -205,7 +238,7 @@
                             <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a>
                         </li> -->
-                        <li>
+                        <!-- <li>
                             <a href="/indexadmin">
                                 <i class="fas fa-desktop"></i>Home</a></li>
                         <li>
@@ -216,28 +249,28 @@
                         </li>
                         <li>
                             <a href="/admvwph">
-                                <i class="fas fa-chart-bar"></i>Panchayat Head</a>
+                                <i class="fas fa-chart-bar"></i>Panchayat Head</a> -->
                             <!-- <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a> -->
-                        </li>
+                        <!-- </li>
                         <li class="">
                             <a href="/admvwfood2">
-                                <i class="fas fa-table"></i>Food</a>
+                                <i class="fas fa-table"></i>Food</a> -->
                             <!-- <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a> -->
-                        </li>
+                        <!-- </li>
                         <li>
                             <a href="/admvwmedicine">
-                                <i class="far fa-check-square"></i>Medicine</a>
+                                <i class="far fa-check-square"></i>Medicine</a> -->
                             <!-- <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a> -->
-                        </li>
-                        <li>
+                        <!-- </li> -->
+                        <!-- <li>
                             <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                                <i class="fas fa-calendar-alt"></i>Calendar</a> -->
                             <!-- <a href="map.html">
                                 <i class="fas fa-map-marker-alt"></i>Maps</a> -->
-                        </li>
+                        <!-- </li> -->
                         <!-- <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages</a>
@@ -309,7 +342,7 @@
                                 <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
                                 
                                 <div class="account-dropdown__footer">
-                                    <h3>Admin</h3>
+                                    <h6 style="color: red;">  {{user.first_name}} Gramapanchayat</h6>
                                  </div>
                             </form>
                             <div class="header-button">
@@ -487,8 +520,8 @@
                             <div class="col-lg-9">
                                 <div class="overview-wrap">
                                     <h3 class="title-1">Registered Users</h3>
-                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/news/'">
-                                        <i class="zmdi zmdi-plus"></i>Covid Updates</button>
+                                    <!-- <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/news/'">
+                                        <i class="zmdi zmdi-plus"></i>Covid Updates</button> -->
                                 </div>
                                 <br>
                                 <div class="table-responsive table--no-card m-b-30">

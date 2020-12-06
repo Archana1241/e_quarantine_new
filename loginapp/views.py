@@ -145,9 +145,10 @@ def care1(request):
         dep.save()
     return render(request, "care.html") 
 def phome(request):
+    pf1 = cnews.objects.filter()
     # h = u_reg.objects.filter()
     
-    return render(request, "phome.html")    
+    return render(request, "phome.html",{'pf1':pf1})    
 def confirmuser(request):
     h = u_reg.objects.filter(status="1")
     return render(request, "confirmuser.html",{'h':h})
@@ -160,9 +161,15 @@ def deleteuser(request,uname):
     u.save()
     return redirect('confirmuser')           
 def uhome(request):
-    return render(request, "uhome.html")   
+    pf11 = cnews.objects.filter()
+    return render(request, "uhome.html", {'pf11':pf11})   
 def indexadmin(request):
-    return render(request, "indexadmin.html")  
+    ucount = u_reg.objects.filter().count()
+    spcount = p_reg.objects.filter().count()
+    dcount = food.objects.filter().count()
+    mcount = medicine.objects.filter().count()
+
+    return render(request, "indexadmin.html" ,{'ucount':ucount,'spcount':spcount,'dcount':dcount,'mcount':mcount})  
 def news(request):
     pp = cnews.objects.filter()
     return render(request, "news.html" ,{'pp':pp})  
@@ -193,9 +200,11 @@ def adminco1(request):
      else:
         return render(request,'news.html')       
 def admvwfood2(request):
-    return render(request, "admvwfood2.html") 
+    a = food.objects.filter() 
+    return render(request, "admvwfood2.html",{'a':a}) 
 def admvwmedicine(request):
-    return render(request, "admvwmedicine.html")           
+    m = medicine.objects.filter() 
+    return render(request, "admvwmedicine.html",{'m':m})           
 def admvwuser(request):
     # i = u_reg.objects.filter(status="1")
     s = u_reg.objects.filter()

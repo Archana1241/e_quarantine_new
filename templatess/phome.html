@@ -85,7 +85,7 @@
                                
                                 <a href="/confirmuser">
                                    <i class="fas fa-user"></i>
-                                   <span class="bot-line"></span>Users</a> 
+                                   <span class="bot-line"></span>User Confirmation</a> 
                            </li>
                             <li>
                                
@@ -116,14 +116,14 @@
                     </div>
                     <div class="header__tool">
                         <div class="header-button-item has-noti js-item-menu">
-                            <i class="zmdi zmdi-notifications"></i>
+                            <!-- <i class="zmdi zmdi-notifications"></i> -->
                             <div class="notifi-dropdown notifi-dropdown--no-bor js-dropdown">
                                 <div class="notifi__title">
                                     <p>You have 3 Notifications</p>
                                 </div>
                                 <div class="notifi__item">
                                     <div class="bg-c1 img-cir img-40">
-                                        <i class="zmdi zmdi-email-open"></i>
+                                        <!-- <i class="zmdi zmdi-email-open"></i> -->
                                     </div>
                                     <div class="content">
                                         <p>You got a email notification</p>
@@ -492,12 +492,10 @@
                                 <div class="au-breadcrumb-left">
                                     <span class="au-breadcrumb-span">Home</span>
                                     <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                        <li class="list-inline-item active">
+                                        <!-- <li class="list-inline-item active">
                                             <a href="#"></a>
-                                        </li>
-                                        <li class="list-inline-item seprate">
-                                            <span>/</span>
-                                        </li>
+                                        </li> -->
+                                       
                                         <li class="list-inline-item">Panchayat Head</li>
                                     </ul>
                                 </div>
@@ -537,14 +535,16 @@
             <section class="statistic statistic2">
                 
                 <div class="container">
+                    <span class="desc"><b style="color:darkblue">Covid 19 Updates </b></span>
+                    <br>
                     <div class="row">
 
-                        
+                        {% for d in pf1 %}
                         <div class="col-md-6 col-lg-3">
                          
                             <div class="statistic__item statistic__item--green">
                               
-                                <h2 class="number">  60 M </h2> 
+                                <h2 class="number">  {{d.ctotal}} </h2> 
                                 
                                 <span class="desc">Total Cases</span>
                                 <div class="icon">
@@ -552,19 +552,21 @@
                                 </div>
                             </div>
                         </div>
-                        
+                       
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--orange">
-                                <h2 class="number"> 30 M  </h2>
+                                <h2 class="number">{{d.cactive}}  </h2>
                                 <span class="desc">Active cases</span>
                                 <div class="icon">
-                                    <i class="zmdi zmdi-shopping-cart"></i>
+                                    <i class="zmdi zmdi-shopping-cart"> </i>
                                 </div>
+                                
                             </div>
+                            
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--blue">
-                                <h2 class="number">    20 M </h2>
+                                <h2 class="number">    {{d.cured}} </h2>
                                 <span class="desc">Recoverd Cases</span>
                                 <div class="icon">
                                     <i class="zmdi zmdi-calendar-note"></i>
@@ -573,7 +575,7 @@
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--red">
-                                <h2 class="number">   10 K </h2>
+                                <h2 class="number">  {{d.death}} </h2>
                                 <span class="desc">Deaths</span>
                                 <div class="icon">
                                     <i class="zmdi zmdi-money"></i>
@@ -581,10 +583,10 @@
                             </div>
                           
                         </div>
-                       
+                        {% endfor %}
                     </div>
                 </div>
-             
+                
             </section>
             <!-- END STATISTIC-->
 
@@ -673,7 +675,7 @@
             <!-- END STATISTIC CHART-->
 
             <!-- DATA TABLE-->
-            <section class="p-t-20">
+            <!-- <section class="p-t-20">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -766,7 +768,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        {% endfor %}
+                                        {% endfor %} -->
                                         <!-- <tr class="spacer"></tr> -->
                                         <!-- <tr class="tr-shadow">
                                             <td>
@@ -906,7 +908,7 @@
     <!-- Vendor JS       -->
     <script src="{% static 'vendor/slick/slick.min.js' %}">
     </script>
-    <script src="{% static 'vendor/wow/wow.min.js"></script>
+    <script src="{% static 'vendor/wow/wow.min.js' %}"></script>
     <script src="{% static 'vendor/animsition/animsition.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}">
     </script>
