@@ -36,6 +36,14 @@ class cnews(models.Model):
     cactive = models.CharField(max_length=100)
     cured = models.CharField(max_length=100)
     death = models.CharField(max_length=100)
+    india=models.CharField(max_length=100)
+    i_active = models.CharField(max_length=100)
+    i_recoverd=models.CharField(max_length=100)
+    i_death=models.CharField(max_length=100)
+    world=models.CharField(max_length=100)
+    w_active = models.CharField(max_length=100)
+    w_recoverd=models.CharField(max_length=100)
+    w_death=models.CharField(max_length=100)
 
 class food(models.Model):
     uname=models.CharField(max_length=100)

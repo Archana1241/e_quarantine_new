@@ -262,6 +262,15 @@ def adminco1(request):
         cactive1 = request.POST['cactive']
         cured1 = request.POST['cured']  
         death1 = request.POST['death']
+
+        ind = request.POST['ind']
+        inda = request.POST['inda']
+        indr = request.POST['indr']
+        indt = request.POST['indt']
+        wl = request.POST['wl']
+        wla = request.POST['wla']
+        wlr = request.POST['wlr'] 
+        wld = request.POST['wld'] 
         # cov=cnews(ctotal=ctotal,cactive=cactive,cured=cured,death=death)
         # cov.save()
         # return render(request,'news.html')
@@ -275,6 +284,22 @@ def adminco1(request):
         pp.cured=cured1
         pp.save()
         pp.death=death1
+        pp.save()
+
+        pp.india=ind
+        pp.save()
+        pp.i_active=inda
+        pp.i_recoverd=indr
+        pp.save()
+        pp.i_death=indt
+        pp.save()
+        pp.world=wl
+        pp.save()
+        pp.w_active=wla
+        pp.save()
+        pp.w_recoverd=wlr
+        pp.save()
+        pp.w_death=wld
         pp.save()
         
         return redirect( '/news')
