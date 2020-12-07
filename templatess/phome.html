@@ -107,6 +107,16 @@
                                     <span class="bot-line"></span>Health Care</a>
                             </li>
                             <li>
+                                <a href="/phpwd">
+                                    <i class="fas fa-edit"></i>
+                                
+                                    <span class="bot-line"></span>Change Password</a>
+                            </li>
+                            <!-- <span>
+                                <a href="/phpwd">
+                                    <i class="fas fa-edit"></i>&nbsp;&nbsp;Change Password</a>
+                                </span> -->
+                            <li>
                                 <a href="/logout">
                                 <i class="zmdi zmdi-power"></i>
                                 <span class="bot-line"></span>Logout</a>
@@ -154,17 +164,17 @@
                             </div>
                         </div>
                         <div class="header-button-item js-item-menu">
-                            <i class="zmdi zmdi-settings"></i>
+                            <!-- <i class="zmdi zmdi-settings"></i> -->
                             <div class="setting-dropdown js-dropdown">
                                 <div class="account-dropdown__body">
                                     <div class="account-dropdown__item">
                                         <a href="#">
                                             <i class="zmdi zmdi-account"></i>Account</a>
                                     </div>
-                                    <div class="account-dropdown__item">
+                                    <!-- <div class="account-dropdown__item">
                                         <a href="#">
                                             <i class="zmdi zmdi-settings"></i>Setting</a>
-                                    </div>
+                                    </div> -->
                                     <div class="account-dropdown__item">
                                         <a href="#">
                                             <i class="zmdi zmdi-money-box"></i>Billing</a>
@@ -195,9 +205,9 @@
                                 <div class="image">
                                     <!-- <img src="/static/images/icon/" alt="" /> -->
                                 </div>
-                                <div class="content">
+                                <!-- <div class="content">
                                     <a class="js-acc-btn" href="#">{{user.username}}</a>
-                                </div>
+                                </div> -->
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         <div class="image">
@@ -205,12 +215,12 @@
                                                 <!-- <img src="/static/images/icon/" alt="" /> -->
                                             </a>
                                         </div>
-                                        <div class="content">
+                                        <!-- <div class="content">
                                             <h5 class="name">
                                                 <a href="#">{{user.username}}</a>
                                             </h5>
                                             <span class="email">johndoe@example.com</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
@@ -490,13 +500,13 @@
                         <div class="col-md-12">
                             <div class="au-breadcrumb-content">
                                 <div class="au-breadcrumb-left">
-                                    <span class="au-breadcrumb-span">Home</span>
+                                    <span style="color:blue" class="au-breadcrumb-span">Home</span>
                                     <ul class="list-unstyled list-inline au-breadcrumb__list">
                                         <!-- <li class="list-inline-item active">
                                             <a href="#"></a>
                                         </li> -->
                                        
-                                        <li class="list-inline-item">Panchayat Head</li>
+                                        <li style="color: blue;" class="list-inline-item">Panchayat Head</li> <a style="color:red" >&nbsp;&nbsp;&nbsp;:&nbsp;{{user.username}}</a>
                                     </ul>
                                 </div>
                                 <!-- <form class="au-form-icon--sm" action="" method="post">

@@ -93,6 +93,58 @@ def usetpwd(request):
 
     else:
         return render(request,'usetpwd.html')    
+def phpwd(request):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        pass1 = request.POST['pswd1']
+        pass2 = request.POST['pswd2']
+        pass3 = request.POST['pswd3']
+        user = auth.authenticate(username = uname, password = pass1)
+        if user is not None:
+            u = User.objects.get(username = uname)
+            
+        
+            if pass2 == pass3:
+                u.set_password(pass3)
+                u.save()
+                messages.info(request,'Your Password Changed ,Please Login')
+                return render(request,'indexlogin1.html')
+            else:
+                messages.info(request,'Password Missmatch...')
+                return redirect('usetpwd')
+           
+        else:
+            messages.info(request,'Invalid Password...')
+            return redirect('change_password')
+
+    else:
+        return render(request,'phpwd.html')    
+def admpw(request):
+    if request.method == 'POST':
+        uname = request.POST['uname']
+        pass1 = request.POST['pswd1']
+        pass2 = request.POST['pswd2']
+        pass3 = request.POST['pswd3']
+        user = auth.authenticate(username = uname, password = pass1)
+        if user is not None:
+            u = User.objects.get(username = uname)
+            
+        
+            if pass2 == pass3:
+                u.set_password(pass3)
+                u.save()
+                messages.info(request,'Your Password Changed ,Please Login')
+                return render(request,'indexlogin1.html')
+            else:
+                messages.info(request,'Password Missmatch...')
+                return redirect('usetpwd')
+           
+        else:
+            messages.info(request,'Invalid Password...')
+            return redirect('change_password')
+
+    else:
+        return render(request,'admpw.html')        
 def payment1(request,id):
     if request.method == 'POST':
         unam= request.POST['unam']
