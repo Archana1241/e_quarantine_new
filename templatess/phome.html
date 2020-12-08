@@ -83,7 +83,7 @@
 
                             <li>
                                
-                                <a href="/confirmuser">
+                                <a href="/confirmuser/{{user.first_name}}">
                                    <i class="fas fa-user"></i>
                                    <span class="bot-line"></span>User Confirmation</a> 
                            </li>
@@ -500,13 +500,33 @@
                         <div class="col-md-12">
                             <div class="au-breadcrumb-content">
                                 <div class="au-breadcrumb-left">
-                                    <span style="color:blue" class="au-breadcrumb-span">Home</span>
+                                    <!-- <span style="color:blue" class="au-breadcrumb-span">Home</span> -->
                                     <ul class="list-unstyled list-inline au-breadcrumb__list">
                                         <!-- <li class="list-inline-item active">
                                             <a href="#"></a>
                                         </li> -->
                                        
-                                        <li style="color: blue;" class="list-inline-item">Panchayat Head</li> <a style="color:red" >&nbsp;&nbsp;&nbsp;:&nbsp;{{user.username}}</a>
+                                       
+                                        <li style="color: blue;" class="list-inline-item">Panchayat Head</li> 
+                                        <a style="color:red" >&nbsp;&nbsp;&nbsp;:&nbsp;{{user.username}}</a>
+                                       
+                                        {% if messages %}
+    <ul class ="messages">
+      {% for message in messages %}
+      
+      
+  
+<h6 style="list-style: none; font-family:'Times New Roman', Times, serif; background-color: blue;color: white;box-shadow: 12px 12px 12px#83f051;">
+      {% if message.tags %} <class={{message.tags}}{% endif %}> 
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {{message}}
+  </h6>
+      {% endfor %}
+      </ul>
+      {% endif %}
+
                                     </ul>
                                 </div>
                                 <!-- <form class="au-form-icon--sm" action="" method="post">

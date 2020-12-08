@@ -213,23 +213,23 @@
                         <li>
                         <li>
                             <a href="/admvwuser">
-                                <i class="fas fa-chart-bar"></i>Users</a>
+                                <i class="fas fa-users"></i>Users</a>
                         </li>
                         <li>
                             <a href="/admvwph">
-                                <i class="fas fa-chart-bar"></i>Panchayat Head</a>
+                                <i class="fas fa-user"></i>Panchayat Head</a>
                             <!-- <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a> -->
                         </li>
                         <li class="active">
                             <a href="/admvwfood2">
-                                <i class="fas fa-table"></i>Food</a>
+                                <i class="fas fa-shopping-basket"></i>Food</a>
                             <!-- <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a> -->
                         </li>
                         <li>
                             <a href="/admvwmedicine">
-                                <i class="far fa-check-square"></i>Medicine</a>
+                                <i class="fas fa-medkit"></i>Medicine</a>
                             <!-- <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a> -->
                         </li>
@@ -1081,6 +1081,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Order id</th>
+                                                <!-- <th>User name</th> -->
                                                 <th>Panchayat</th>
                                                
                                                 <th>Food Item</th>
@@ -1100,6 +1101,7 @@
                                             {% for f in a %}
                                             <tr>
                                                 <td>{{f.id}}</td>
+                                                <!-- <td>{{f.name}}</td> -->
                                                 <td>{{f.pname}}</td>
                                                 <td>{{f.fitem}}</td>
                                                 <td>{{f.fprice}}</td>

@@ -1099,7 +1099,7 @@
                                             <tr>
                                                 <th>Panchayat</th>
                                                 <th>Medicine Name</th>
-                                                
+                                                <th>Quantity</th>
                                                 <th>Price</th>
                                                 <!-- <th>Status</th> -->
                                                 <th>Order</th>
@@ -1110,6 +1110,7 @@
                                             <tr>
                                                 <td>{{f1.pname}}</td>
                                                 <td>{{f1.mname}}</td>
+                                                <td>{{f1.quantity}}</td>
                                                 <td>{{f1.mprice}}</td>
                                                 
                                                 <form method="POST" action="/usermedorder/{{f1.id}}">

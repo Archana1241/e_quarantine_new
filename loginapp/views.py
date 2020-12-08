@@ -202,9 +202,9 @@ def addmedicine(request):
         uname = request.POST['uname']
         sp = request.POST['sp']
         mname = request.POST['mname']
-       
+        quan=request.POST['quantity']
         mprice = request.POST['mprice']  
-        med=medicine(uname=uname,pname=sp,mname=mname,mprice=mprice,status="not ordered")
+        med=medicine(uname=uname,pname=sp,mname=mname,mprice=mprice,status="not ordered",quantity=quan)
         med.save()
     return render(request, "addmedicine.html") 
 def care(request):
@@ -230,8 +230,8 @@ def phome(request):
     # h = u_reg.objects.filter()
     
     return render(request, "phome.html",{'pf1':pf1})    
-def confirmuser(request):
-    h = u_reg.objects.filter(status="1")
+def confirmuser(request,pname):
+    h = u_reg.objects.filter(status="1",pname=pname)
     return render(request, "confirmuser.html",{'h':h})
 def deleteuser(request,uname):
     d=u_reg.objects.get(uname=uname)
@@ -240,7 +240,8 @@ def deleteuser(request,uname):
     u=User.objects.get(username=uname)
     u.is_active = False
     u.save()
-    return redirect('confirmuser')           
+    messages.success(request,'Rejected one user ')
+    return redirect('phome')           
 def uhome(request):
     pf11 = cnews.objects.filter()
     return render(request, "uhome.html", {'pf11':pf11})   
@@ -362,7 +363,7 @@ def signupp(request):
                 return render(request, 'reguser2.html') 
             user = User.objects.create_user(username=uname, password=pwd, email=uname, first_name=fname, last_name=lname)
             user.save()
-            usr=u_reg(fname=fname,lname=lname,mob=mob,hname=hname,place=place,district=district,state=state,pin=pin,pname=pname,uname=uname,status='1')
+            usr=u_reg(fname=fname,lname=lname,mob=mob,hname=hname,place=place,district=district,state=state,pin=pin,pname=pname.lower(),uname=uname,status='1')
             usr.save()
             return render(request, 'indexlogin1.html') 
         else: 
@@ -386,9 +387,9 @@ def signupph(request):
             if User.objects.filter(username=uname).exists():                                                                 
                 messages.info(request,'Username already exist')
                 return render(request, 'regpanchayat2.html') 
-            user = User.objects.create_user(username=uname, password=pwdd, email=uname, first_name=pname, last_name="ph")
+            user = User.objects.create_user(username=uname, password=pwdd, email=uname, first_name=pname.lower(), last_name="ph")
             user.save()    
-            phr=p_reg(state=state,district=district,pname=pname,cperson=cperson,mob=mob,uname=uname,status='1')
+            phr=p_reg(state=state,district=district,pname=pname.lower(),cperson=cperson,mob=mob,uname=uname,status='1')
             phr.save()
             
             return render(request, 'indexlogin1.html') 

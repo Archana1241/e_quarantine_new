@@ -60,9 +60,10 @@ class medicine(models.Model):
     pname =models.CharField(max_length=100)
     name=models.CharField(max_length=100)
     mname = models.CharField(max_length=100)
-   
+    
     mprice=models.IntegerField()
     status =models.TextField()
+    quantity=models.IntegerField()
 
 class doctor(models.Model):
     pname =models.CharField(max_length=100)
