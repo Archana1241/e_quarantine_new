@@ -78,7 +78,7 @@
                             </ul>
                               </li>
                               <li>
-                                 <a href="#"><img src="/static/images/search_icon.png" alt="#" /></a>
+                                 <!-- <a href="#"><img src="/static/images/search_icon.png" alt="#" /></a> -->
                               </li>
                            </ul>
                         </nav>
@@ -119,10 +119,10 @@
                      <!-- <h4>More Featured in</h4>
                      <h3>Jack Blogger</h3> -->
                      {% for d in pf %}
-                     <h1 ><marquee scrollamount="10" dir="ltr" style="color:green"> <b style="color:red">{{d.ctotal}} </b> 
-                        Covid cases were Reported and <b style="color:red">{{d.cactive}}</b> Active Cases are found, 
-                        <b style="color:red">{{d.cured}}</b>
-                         People were Recovered Also <b style="color:red">{{d.death}}</b> Deaths were Reported all over in the world
+                     <h1 ><marquee scrollamount="10" dir="ltr" style="color:green"> <b style="color:red">{{d.world}} </b> 
+                        Covid cases were Reported and <b style="color:red">{{d.w_active}}</b> Active Cases are found, 
+                        <b style="color:red">{{d.w_recoverd}}</b>
+                         People were Recovered Also <b style="color:red">{{d.w_death}}</b> Deaths were Reported all over in the world
                
               </marquee></h1>{% endfor %}
                      <p style="color:black">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.

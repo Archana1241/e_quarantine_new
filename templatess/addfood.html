@@ -468,17 +468,35 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="overview-wrap">
+                                {% if messages %}
+                                <ul class ="messages">
+                                  {% for message in messages %}
+                                  
+                                  
+                              
+                            <h6 style="list-style: none; font-family:'Times New Roman', Times, serif; 
+                            background-color: blue;color: white;box-shadow: 12px 12px 12px#83f051;">
+                                  {% if message.tags %} <class={{message.tags}}{% endif %}> 
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{message}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                              </h6>
+                                  {% endfor %}
+                                  </ul>
+                                  {% endif %}
                                 <!-- <h3 class="title-1">Registered Users</h3> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletefood'">
+                                
+                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletefood/{{user.username}}/{{user.first_name}}'">
                                     
-                                    View Food Orders</button><br>
+                                    View Food Details</button><br>
                             </div>
                             <br><br><br><br>
                             <!-- <div class="col-lg-6"> -->

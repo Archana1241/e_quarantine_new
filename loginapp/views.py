@@ -119,32 +119,32 @@ def phpwd(request):
 
     else:
         return render(request,'phpwd.html')    
-def admpw(request):
-    if request.method == 'POST':
-        uname = request.POST['uname']
-        pass1 = request.POST['pswd1']
-        pass2 = request.POST['pswd2']
-        pass3 = request.POST['pswd3']
-        user = auth.authenticate(username = uname, password = pass1)
-        if user is not None:
-            u = User.objects.get(username = uname)
+# def admpw(request):
+#     if request.method == 'POST':
+#         uname = request.POST['uname']
+#         pass1 = request.POST['pswd1']
+#         pass2 = request.POST['pswd2']
+#         pass3 = request.POST['pswd3']
+#         user = auth.authenticate(username = uname, password = pass1)
+#         if user is not None:
+#             u = User.objects.get(username = uname)
             
         
-            if pass2 == pass3:
-                u.set_password(pass3)
-                u.save()
-                messages.info(request,'Your Password Changed ,Please Login')
-                return render(request,'indexlogin1.html')
-            else:
-                messages.info(request,'Password Missmatch...')
-                return redirect('usetpwd')
+#             if pass2 == pass3:
+#                 u.set_password(pass3)
+#                 u.save()
+#                 messages.info(request,'Your Password Changed ,Please Login')
+#                 return render(request,'indexlogin1.html')
+#             else:
+#                 messages.info(request,'Password Missmatch...')
+#                 return redirect('usetpwd')
            
-        else:
-            messages.info(request,'Invalid Password...')
-            return redirect('change_password')
+#         else:
+#             messages.info(request,'Invalid Password...')
+#             return redirect('change_password')
 
-    else:
-        return render(request,'admpw.html')        
+#     else:
+#         return render(request,'admpw.html')        
 def payment1(request,id):
     if request.method == 'POST':
         unam= request.POST['unam']
@@ -256,7 +256,7 @@ def news(request):
     pp = cnews.objects.filter()
     return render(request, "news.html" ,{'pp':pp})  
 def logout(request):
-    return render(request,'index1.html')     
+    return redirect('mainhome')     
 def adminco1(request):
      if request.method == 'POST':
         ctotal1 = request.POST['ctotal']
@@ -327,22 +327,26 @@ def deleteph(request,uname):
     u.is_active = False
     u.save()
     return redirect('admvwph')  
-def deletefood(request):
-    j = food.objects.filter()
+def deletefood(request,uname,pname):
+    
+    j = food.objects.filter(uname=uname,pname=pname)
+    
     return render(request,'deletefood.html',{'j':j})   
 def deletefood1(request,id):
     cc=food.objects.get(id=id)
     
     cc.delete()
-    return redirect( 'deletefood')
-def deletemedicine(request):
-    j1 = medicine.objects.filter()
+    messages.success(request,'One item deleted ')
+    return redirect( 'addfood')
+def deletemedicine(request,uname,pname):
+    j1 = medicine.objects.filter(uname=uname,pname=pname)
     return render(request,'deletemedicine.html',{'j1':j1})
 def deletemedicine1(request,id):
     cc1=medicine.objects.get(id=id)
     
     cc1.delete()
-    return redirect( 'deletemedicine')                   
+    messages.success(request,'One item deleted ')
+    return redirect( 'addmedicine')                   
 def signupp(request):
    if request.method == 'POST':
         fname = request.POST['fname']
