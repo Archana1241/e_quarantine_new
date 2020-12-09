@@ -25,18 +25,18 @@ def mainhome(request):
 def statistics(request):
     data=True
     result = None
-    globalSummary = None
-    countries = None
+    total = None
+    states = None
     while(data):
         try:
-            result =requests.get('https://api.covid19api.com/summary')
-            globalSummary=result.json()['Global']
-            countries = result.json()['Countries']
+            result =requests.get('https://disease.sh/v3/covid-19/gov/India')
+            total = result.json()['total']
+            states = result.json()['states']
             data=False
         except:
             data=True
 
-    return render(request, "statistics.html",{'globalSummary' : globalSummary, 'countries':countries})    
+    return render(request, "statistics.html",{'total' : total, 'states':states})    
 def indexlogin1(request):
     return render(request, "indexlogin1.html")    
 def reguser2(request):

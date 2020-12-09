@@ -8,7 +8,7 @@
 
     </head>
     <body class="p-3" style="text-align: center;">
-        <h1>Covid-19 Global Data</h1>
+        <h1>Covid-19  UPDATES OF INDIA</h1>
         <br>
         <!-- <pre>{{globalSummary}}</pre> -->
         <div class="container-fluid">
@@ -17,74 +17,102 @@
                    <div class="card " > 
                        <img class="card-img-top" >
                        <div class="card-body" style="background-color: blue; color: white;" >
-                           <h4 class="card-title">New Confirmed</h4>
-                           <p class="card-text">{{globalSummary.NewConfirmed}}</p>
+                           <h4 class="card-title">Active</h4>
+                           <p class="card-text">{{total.active}}</p>
                        </div>
                    </div>
                    <div class="card ">
                     <img class="card-img-top" style="height: 10; width: 10;" >
                     <div class="card-body" style="background-color:pink; color: white;">
-                        <h4 class="card-title">Total Confirmed</h4>
-                        <p class="card-text">{{globalSummary.TotalConfirmed}}</p>
+                        <h4 class="card-title">Recovered</h4>
+                        <p class="card-text">{{total.recovered}}</p>
                     </div>
                 </div>
                 <div class="card ">
                     <img class="card-img-top" >
                     <div class="card-body" style="background-color:firebrick; color: white;" >
-                        <h4 class="card-title">New Deaths</h4>
-                        <p class="card-text">{{globalSummary.NewDeaths}}</p>
+                        <h4 class="card-title"> Deaths</h4>
+                        <p class="card-text">{{total.deaths}}</p>
                     </div>
                 </div>
                 <div class="card ">
                     <img class="card-img-top" >
                     <div class="card-body"style="background-color:#32CD32; color: white;" >
-                        <h4 class="card-title">Total Deaths</h4>
-                        <p class="card-text">{{globalSummary.TotalDeaths}}</p>
+                        <h4 class="card-title">Cases</h4>
+                        <p class="card-text">{{total.cases}}</p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img-top" >
                     <div class="card-body"style="background-color: tomato; color: white;" >
-                        <h4 class="card-title">New Recovered</h4>
-                        <p class="card-text">{{globalSummary.NewRecovered}}</p>
+                        <h4 class="card-title">Today Active</h4>
+                        <p class="card-text">{{total.todayActive}}</p>
                     </div>
                 </div>
                 <div class="card  ">
                     <img class="card-img-top" >
+                    <div class="card-body" style="background-color:lightgreen; color: white;">
+                        <h4 class="card-title">Today Recovered</h4>
+                        <p class="card-text">{{total.todayRecovered}}</p>
+                    </div>
+                </div>
+
+                <div class="card  ">
+                    <img class="card-img-top" >
+                    <div class="card-body" style="background-color:#7d34eb; color: white;">
+                        <h4 class="card-title">Today Deaths</h4>
+                        <p class="card-text">{{total.todayDeaths}}</p>
+                    </div>
+                </div>
+
+                <div class="card  ">
+                    <img class="card-img-top" >
                     <div class="card-body" style="background-color:2E8B57; color: white;">
-                        <h4 class="card-title">Total Recovered</h4>
-                        <p class="card-text">{{globalSummary.TotalRecovered}}</p>
+                        <h4 class="card-title">Today Cases </h4>
+                        <p class="card-text">{{total.todayCases}}</p>
                     </div>
                 </div>
 
                </div>
+               
 
                <hr>
-               <h4 class="alert-alert-light border rounded" >Country Wise Summary</h4>
+               <h4 class="alert-alert-light border rounded" >COVID-19 India State Wise Summary </h4>
                <hr>
+               
               <table class="table">
                 <thead>
                     <tr>
-                        <th>Sno.</th>
-                       <th>Country</th>
-                       <th>Total Confirmed</th>
-                       <th>Total Deaths</th>
-                       <th>Total Recovered</th>
+                        <th>Sl.No</th>
+                        <th>State</th>
+                       <th>Active</th>
+                       <th>Recovered</th>
+                       <th>Deaths</th>
+                       <th>Cases</th>
+                       <th>Today Active</th>
+                       <th>Today Recovered</th>
+                       <th>Today Deaths</th>
+                       <th>Today Cases</th>
                     </tr>
                  </thead>
                  <tbody>
-                    {% for c in countries %}
+                    {% for c in states %}
                     <tr>
                        <td>{{forloop.counter}}</td>
-                       <td>{{c.Country}}</td>
-                       <td>{{c.TotalConfirmed}}</td>
-                       <td>{{c.TotalDeaths}}</td>
-                       <td>{{c.TotalRecovered}}</td>
-                       <td></td>
+                       <td>{{c.state}}</td>
+                       <td>{{c.active}}</td>
+                       <td>{{c.recovered}}</td>
+                       <td>{{c.deaths}}</td>
+                       <td>{{c.cases}}</td>
+                       <td>{{c.todayActive}}</td>
+                       <td>{{c.todayRecovered}}</td>
+                       <td>{{c.todayDeaths}}</td>
+                       <td>{{c.todayCases}}</td>
                     </tr>
                     {% endfor %}
                  </tbody>
               </table>
+        
 
 
 
