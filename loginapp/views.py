@@ -19,6 +19,11 @@ from . models import doctor
 from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
+import math, random
+#email
+from e_quarantine.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
+
 def mainhome(request):
     pf = cnews.objects.filter()
     return render(request, "index1.html",{'pf':pf})
@@ -424,4 +429,62 @@ def logincheck(request):
                  return render(request, 'indexlogin1.html')
     else:             
         return render(request, 'indexlogin1.html')
+                        
+def forgotpass(request):
+    if request.method=="POST":
+        p=OTPgenerator()
+        global otp
+        global omail
+        
+        otp=p
+        # request.session['otp']=p
+        mailAddr=request.POST.get('email')
+        
+        if u_reg.objects.filter(uname=mailAddr).exists():
+            # request.session['omail']=mailAddr
+            omail=mailAddr
+            sendOtpToMAil(mailAddr, p)
+            return redirect("http://localhost:8000/cpass")
+        else:
+            messages.error(request,"Not a registered User")
+        
+    return render(request, "forget-pass.html")
+
+def otp_pass(request):
+   
+    if request.method=="POST":
+        j=request.POST.get('cpass')
+        o=request.POST.get('onetp')
+        print(j,o)
+        if(o==otp):
+            # print("\n\nNADAKKOOOLLAAAAa")
+            u=User.objects.get(username =omail)
+            # print(u)
+            u.set_password(j)
+            u.save()
+
+            return redirect("http://localhost:8000/indexlogin1/")
+        else:
+            messages.error(request,"OTP is not correct")
+        
+    return render(request, "cpass.html")
+
+def OTPgenerator():
+    digits_in_otp = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    OTP = ""
+    length = len(digits_in_otp)
+    for i in range(6):
+        OTP += digits_in_otp[math.floor(random.random() * length)]
+
+    print("\nOTP: ",OTP)
+
+    return OTP
+
+def sendOtpToMAil(mailAddr, otp):
+    subject = 'EQS - OTP for Changing Password'
+    message = 'Hello,\nHere is the OTP for changing the Password of your account:'+ str(otp)
+    
+    mailAddr = str(mailAddr)
+    recepient = str(mailAddr)
+    send_mail(subject, message, EMAIL_HOST_USER, [recepient], fail_silently=False)
                         

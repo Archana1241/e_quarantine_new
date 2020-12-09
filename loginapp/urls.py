@@ -51,5 +51,7 @@ urlpatterns = [
     path('payment1/<int:id>',views.payment1, name='payment1'),
     path('payment2/<int:id>',views.payment2, name='payment2'),
     # path('pay/',views.pay, name='pay'),
-    path('signupph/',views.signupph, name='signupph')
+    path('signupph/',views.signupph, name='signupph'),
+    path('fpass/',views.forgotpass, name='fpass'),
+    path('cpass/',views.otp_pass, name='cpass'),
 ]
