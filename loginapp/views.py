@@ -284,6 +284,13 @@ def deleteuser(request,uname):
 def uhome(request):
     pf11 = cnews.objects.filter()
     return render(request, "uhome.html", {'pf11':pf11})   
+def viewnotification(request):
+    fcount = u_reg.objects.filter(f_status="ordered").count()
+    mcount = u_reg.objects.filter(f_status="ordered").count()
+    tcount=fcount+mcount
+   
+
+    return render(request, "phome.html" ,{'tcount':tcount})      
 def indexadmin(request):
     ucount = u_reg.objects.filter().count()
     spcount = p_reg.objects.filter().count()
