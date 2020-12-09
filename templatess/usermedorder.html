@@ -1001,7 +1001,7 @@
                                     </div>
                                     <div class="card-body card-block">
                                        
-                                        <form action="/payment2/{{s2.id}}" method="post" class="form-horizontal">
+                                        <form action="/payment2/{{s2.id}}/{{user.username}}" method="post" class="form-horizontal">
                                            
                                             {% csrf_token %}
                                             
@@ -1040,7 +1040,7 @@
                                                     <input type="text" id="input-large" name="mprice"  value="{{s2.mprice}}"  class="form-control" >
                                                 </div>
                                             </div>
-                                            <input type="hidden" id="input-large" name="unam1"  value={{user.first_name}}  class="form-control" >
+                                            <input type="hidden" id="input-large" name="unam1"  value={{user.username}}  class="form-control" >
                                             <input type="hidden" id="input-large" name="stat1"  value="ordered"  class="form-control" >
                                             <!-- <div class="card-footer">
                                                 <button type="submit" class="btn btn-primary btn-sm" value="Submit" onclick="myFunction()">

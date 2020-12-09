@@ -58,15 +58,84 @@ def userfoodorder(request,id):
 def usermedorder(request,id):
     s2=medicine.objects.get(id=id)
     return render(request, "usermedorder.html", {'s2':s2})
-def payment(request,id):
-    s1=food.objects.get(id=id)
+def payment(request,id,uname):
+    s1=food.objects.get(id=id,u_name=uname)
     return render(request, "payment.html",{'s1':s1})
-def mpayment(request,id):
-    s11=medicine.objects.get(id=id)
+def mpayment(request,id,uname):
+    s11=medicine.objects.get(id=id,u_name=uname)
     return render(request, "payment1.html",{'s11':s11})
-# def usetpwd1(request):
+def phnotification(request,pname):
+    n=food.objects.filter(status="ordered",pname=pname)
+    m=medicine.objects.filter(status="ordered",pname=pname)
     
-#     return render(request, "usetpwd.html")    
+    post=[]
+    com=[]
+    com1=[]
+    com2=[]
+    com3=[]
+    post1=[]
+    com11=[]
+    com12=[]
+    com13=[]
+    com14=[]
+    for e in n:
+        jid=e.id
+        job=u_reg.objects.get(f_id=jid)
+        name=job.fname
+        # lname=job.lname
+        post.append(name)
+        # post.append(lname)
+    for e1 in n:
+        jid=e1.id    
+        job=u_reg.objects.get(f_id=jid)
+        hname=job.hname
+        com.append(hname)
+    for e2 in n:
+        jid=e2.id    
+        job=u_reg.objects.get(f_id=jid)
+        place=job.place
+        com1.append(place)
+    for e3 in n:
+        jid=e3.id    
+        job=u_reg.objects.get(f_id=jid)
+        mob=job.mob
+        com2.append(mob)        
+    for e4 in n:
+        jid=e4.id    
+        job=u_reg.objects.get(f_id=jid)
+        id1=job.f_id
+        com3.append(id1) 
+    for e5 in m:
+        jid=e5.id
+        job=u_reg.objects.get(m_id=jid)
+        name=job.fname
+        # lname=job.lname
+        post1.append(name)
+        # post.append(lname)    
+    for e6 in m:
+        jid=e6.id    
+        job=u_reg.objects.get(m_id=jid)
+        hname=job.hname
+        com11.append(hname)
+    for e7 in m:
+        jid=e7.id    
+        job=u_reg.objects.get(m_id=jid)
+        place=job.place
+        com12.append(place)
+    for e8 in m:
+        jid=e8.id    
+        job=u_reg.objects.get(m_id=jid)
+        mob=job.mob
+        com13.append(mob)        
+    for e9 in m:
+        jid=e9.id    
+        job=u_reg.objects.get(m_id=jid)
+        id2=job.m_id
+        com14.append(id2)     
+    return render(request, "phnotification.html",{'n':n,'post':post,'com':com,'com1':com1,'com2':com2,'com3':com3,'m':m,'post1':post1,'com11':com11,'com12':com12,'com13':com13,'com14':com14})       
+
+    
+     
 def usetpwd(request):
     if request.method == 'POST':
         uname = request.POST['uname']
@@ -119,70 +188,40 @@ def phpwd(request):
 
     else:
         return render(request,'phpwd.html')    
-# def admpw(request):
-#     if request.method == 'POST':
-#         uname = request.POST['uname']
-#         pass1 = request.POST['pswd1']
-#         pass2 = request.POST['pswd2']
-#         pass3 = request.POST['pswd3']
-#         user = auth.authenticate(username = uname, password = pass1)
-#         if user is not None:
-#             u = User.objects.get(username = uname)
-            
         
-#             if pass2 == pass3:
-#                 u.set_password(pass3)
-#                 u.save()
-#                 messages.info(request,'Your Password Changed ,Please Login')
-#                 return render(request,'indexlogin1.html')
-#             else:
-#                 messages.info(request,'Password Missmatch...')
-#                 return redirect('usetpwd')
-           
-#         else:
-#             messages.info(request,'Invalid Password...')
-#             return redirect('change_password')
-
-#     else:
-#         return render(request,'admpw.html')        
-def payment1(request,id):
+def payment1(request,id,uname):
     if request.method == 'POST':
         unam= request.POST['unam']
         stat = request.POST['stat']
          
         pa1=food.objects.get(id=id)
-        pa1.name=unam
+        pa1.u_name=unam
         pa1.save()
         pa1.status=stat
         pa1.save()
-       
-    return redirect('payment',id) 
-def payment2(request,id):
+        pa2=u_reg.objects.get(uname=uname)
+        pa2.f_status=stat
+        pa2.f_id=id
+        pa2.save()
+    return redirect('payment',id,uname) 
+def payment2(request,id,uname):
     if request.method == 'POST':
         unam1= request.POST['unam1']
         stat1 = request.POST['stat1']
          
         pa2=medicine.objects.get(id=id)
-        pa2.name=unam1
+        pa2.u_name=unam1
         pa2.save()
         pa2.status=stat1
         pa2.save()
+        pa2=u_reg.objects.get(uname=uname)
+        pa2.m_status=stat1
+        pa2.m_id=id
+        pa2.save()
        
-    return redirect('mpayment',id)     
+    return redirect('mpayment',id,uname)     
 
-# def pay(request):
-    
-#     # if request.method == 'POST':
-#     #     # pamt= request.POST['pamt']
-        
-#     #     # cname = request.POST['cname']
-#     #     cno = request.POST['cno'] 
-#     #     expno= request.POST['expno']
-#     #     cvv= request.POST['cvv']  
-#     #     paa=payment(cno=cno,expno=expno,cvv=cvv)
-#     #     paa.save()
-       
-#     return render(request, "payment.html") 
+
 def addfood1(request):   
     # sp = User.objects.filter(last_name="ph")
     return render (request,'addfood.html')
@@ -367,7 +406,7 @@ def signupp(request):
                 return render(request, 'reguser2.html') 
             user = User.objects.create_user(username=uname, password=pwd, email=uname, first_name=fname, last_name=lname)
             user.save()
-            usr=u_reg(fname=fname,lname=lname,mob=mob,hname=hname,place=place,district=district,state=state,pin=pin,pname=pname.lower(),uname=uname,status='1')
+            usr=u_reg(fname=fname,lname=lname,mob=mob,hname=hname,place=place,district=district,state=state,pin=pin,pname=pname.lower(),uname=uname,status='1',f_status="null",m_status="null",f_id='0',m_id='0')
             usr.save()
             return render(request, 'indexlogin1.html') 
         else: 

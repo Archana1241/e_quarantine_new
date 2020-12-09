@@ -15,6 +15,11 @@ class u_reg(models.Model):
     pname=models.CharField(max_length=100)
     uname=models.CharField(max_length=100)
     status=models.IntegerField()
+    f_status =models.TextField()
+    m_status =models.TextField()
+    f_id=models.IntegerField()
+    m_id=models.IntegerField()
+
 
     def __str__(self):
         return self.uname
@@ -47,7 +52,7 @@ class cnews(models.Model):
 
 class food(models.Model):
     uname=models.CharField(max_length=100)
-    name=models.CharField(max_length=100)
+    u_name=models.CharField(max_length=100)
     pname =models.CharField(max_length=100)
     fitem = models.CharField(max_length=100)
     
@@ -57,8 +62,9 @@ class food(models.Model):
 
 class medicine(models.Model):
     uname=models.CharField(max_length=100)
+    u_name=models.CharField(max_length=100)
     pname =models.CharField(max_length=100)
-    name=models.CharField(max_length=100)
+    
     mname = models.CharField(max_length=100)
     
     mprice=models.IntegerField()

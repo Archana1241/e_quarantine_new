@@ -1120,6 +1120,7 @@
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
+                                                <th>Medicine Id</th>
                                                 <th>Medicine</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
@@ -1132,6 +1133,7 @@
                                         <tbody>
                                             {% for f in j1 %}
                                             <tr>
+                                                <td>{{f.id}}</td>
                                                 <td>{{f.mname}}</td>
                                                 <td>{{f.quantity}}</td>
                                                 <td>{{f.mprice}}</td>

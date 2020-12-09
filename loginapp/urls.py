@@ -45,11 +45,12 @@ urlpatterns = [
     path('medicineorder/',views.medicineorder, name='medicineorder'),
     path('userfoodorder/<int:id>',views.userfoodorder, name='userfoodorder'),
     path('usermedorder/<int:id>',views.usermedorder, name='usermedorder'),
-    path('payment/<int:id>',views.payment, name='payment'),
-    path('mpayment/<int:id>',views.mpayment, name='mpayment'),
+    path('payment/<int:id>/<str:uname>',views.payment, name='payment'),
+    path('mpayment/<int:id>/<str:uname>',views.mpayment, name='mpayment'),
     path('confirmuser/<str:pname>',views.confirmuser, name='confirmuser'),
-    path('payment1/<int:id>',views.payment1, name='payment1'),
-    path('payment2/<int:id>',views.payment2, name='payment2'),
+    path('payment1/<int:id>/<str:uname>',views.payment1, name='payment1'),
+    path('payment2/<int:id>/<str:uname>',views.payment2, name='payment2'),
+    path('phnotification/<str:pname>',views.phnotification, name='phnotification'),
     # path('pay/',views.pay, name='pay'),
     path('signupph/',views.signupph, name='signupph')
 ]
