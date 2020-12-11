@@ -37,6 +37,34 @@
 </head>
 
 <body class="animsition">
+    <script>
+        function myfun() {
+            var a = document.getElementById("password").value;
+            var b = document.getElementById("passwords").value;
+            var c  = document.getElementById("onetp").value;
+        if(c==""){
+            document.getElementById("messagess").innerHTML="**Please Fill OTP";
+        }    
+
+        if(a==""){
+            document.getElementById("messages").innerHTML="**Please Fill Password";
+            return false;
+        }  
+        if(a.length < 5){
+            document.getElementById("messages").innerHTML="**Password length must be greater than 5 characters";
+            return false;
+        }
+        if(a.length > 25){
+            document.getElementById("messages").innerHTML="**Password length must be smaller than 25 characters";
+            return false;
+        } 
+        if(a!=b){
+            document.getElementById("messages").innerHTML="**Passwords are not same";
+            return false;
+        }
+
+        }
+    </script>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -49,18 +77,21 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" id="form1" method="post">{% csrf_token %}
+                            <form action="" id="form1" method="post" onsubmit="return myfun()">{% csrf_token %}
                                 <div class="form-group">
                                     <label>OTP</label>
                                     <input class="au-input au-input--full" type="text" name="onetp" id="onetp" placeholder="OTP">
+                                    <span id="messagess" style="color: red;"></span><br>
                                     <label>New Password</label>
-                                    <input class="au-input au-input--full" type="text" name="pass" placeholder="New Password">
+                                    <input class="au-input au-input--full" type="text" name="pass" placeholder="New Password" value="" id="password">
+                                    <span id="messages" style="color: red;"></span><br>
                                     <label>Confirm Password</label>
-                                    <input class="au-input au-input--full" type="text" name="cpass" placeholder="Confirm Password"><br>
-                                    {% for m in messages %}
+                                    <input class="au-input au-input--full" type="text" name="cpass" placeholder="Confirm Password" value="" id="passwords">
+                                    <span id="messagess"></span><br>
+                                    <!-- {% for m in messages %}
                                     <span style="color: red;">{{m.message}}</span>
 					                
-					                {% endfor %}
+					                {% endfor %} -->
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">submit</button>
                             </form>
