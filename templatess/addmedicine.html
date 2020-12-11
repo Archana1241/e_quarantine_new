@@ -189,7 +189,7 @@
                             <a href="/phome">
                                 <i class="fas fa-desktop"></i>Home</a></li>
                                 <li >
-                                    <a href="/confirmuser">
+                                    <a href="/confirmuser/{{user.first_name}}">
                                         
                                         <i class="fas fa-user"></i>User Confirmation</a>
                                 </li>
@@ -210,7 +210,11 @@
                             <!-- <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a> -->
                         </li>
-                       
+                        <li>
+                            <a href="/phnotification/{{user.first_name}}">
+                            <i class="fas fa-bell"></i>
+                            <span class="bot-line"></span>Notifications</a>
+                        </li>
                         <!-- <li>
                             <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a> -->
@@ -294,8 +298,8 @@
                             <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
+                                        <!-- <i class="zmdi zmdi-comment-more"></i>
+                                        <span class="quantity">1</span> -->
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
                                                 <p>You have 2 news message</p>
@@ -326,8 +330,8 @@
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
+                                        <!-- <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">1</span> -->
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
                                                 <p>You have 3 New Emails</p>
@@ -365,8 +369,8 @@
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
+                                        <!-- <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span> -->
                                         <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__title">
                                                 <p>You have 3 Notifications</p>
@@ -468,6 +472,27 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="overview-wrap">
+
+                                {% if messages %}
+                                <ul class ="messages">
+                                  {% for message in messages %}
+                                  
+                                  
+                              
+                            <h6 style="list-style: none; font-family:'Times New Roman', Times, serif; 
+                            background-color: blue;color: white;box-shadow: 12px 12px 12px#83f051;">
+                                  {% if message.tags %} <class={{message.tags}}{% endif %}> 
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{message}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                              </h6>
+                                  {% endfor %}
+                                  </ul>
+                                  {% endif %}
                                 <!-- <h3 class="title-1">Registered Users</h3> -->
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                
@@ -476,9 +501,9 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletemedicine'">
+                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletemedicine/{{user.username}}/{{user.first_name}}'">
                                     
-                                    View Medicine Orders</button><br>
+                                    View Medicine Details</button><br>
                             </div>
                             <br><br><br><br>
                             <!-- <div class="col-lg-6"> -->
@@ -1008,7 +1033,14 @@
                                                     <input type="text" id="input-normal" name="mname"   class="form-control" >
                                                 </div>
                                             </div>
-                                            
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-large" class=" form-control-label">Quantity</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-large" name="quantity"  placeholder="(Count)" class="form-control" >
+                                                </div>
+                                            </div>
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
                                                     <label for="input-large" class=" form-control-label">Price</label>

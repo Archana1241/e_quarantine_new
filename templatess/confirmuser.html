@@ -214,7 +214,11 @@
                                 <i class="far fa-check-square"></i>Forms</a> -->
                         </li>
 
-
+                        <li>
+                            <a href="/phnotification/{{user.first_name}}">
+                            <i class="fas fa-bell"></i>
+                            <span class="bot-line"></span>Notifications</a>
+                        </li>
 
                         <!-- <li>
                             <a href="chart.html">
@@ -348,8 +352,8 @@
                             <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
+                                        <!-- <i class="zmdi zmdi-comment-more"></i>
+                                        <span class="quantity">1</span> -->
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
                                                 <p>You have 2 news message</p>
@@ -380,8 +384,8 @@
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
+                                        <!-- <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">1</span> -->
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
                                                 <p>You have 3 New Emails</p>
@@ -419,8 +423,8 @@
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
+                                        <!-- <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span> -->
                                         <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__title">
                                                 <p>You have 3 Notifications</p>
@@ -1120,12 +1124,13 @@
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Username</th>
-                                                <th>Mobile</th>
-                                                <th>Panchayat</th>
+                                                <th>Name  </th>
+                                                <th>Email </th>
+                                                <th>Mobile  </th>
+                                                <th>House name  </th>
+                                                <th>Place  </th>
                                                 <th></th>
-                                                <th>Reject</th>
+                                                <th></th>
                                                 <!-- <th>Status</th> -->
                                             </tr>
                                         </thead>
@@ -1136,7 +1141,8 @@
                                                 <td>{{f.uname}}</td>
                                                 <td>{{f.mob}}</td>
                                                 
-                                                <td>{{f.pname}}</td>
+                                                <td>{{f.hname}}</td>
+                                                <td>{{f.place}}</td>
 
                                                 <td>
 

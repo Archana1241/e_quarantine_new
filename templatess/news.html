@@ -189,23 +189,23 @@
                         <li>
                         <li>
                             <a href="/admvwuser">
-                                <i class="fas fa-chart-bar"></i>Users</a>
+                                <i class="fas fa-users"></i>Users</a>
                         </li>
                         <li>
                             <a href="/admvwph">
-                                <i class="fas fa-chart-bar"></i>Panchayat Head</a>
+                                <i class="fas fa-user"></i>Panchayat Head</a>
                             <!-- <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a> -->
                         </li>
                         <li class="">
                             <a href="/admvwfood2">
-                                <i class="fas fa-table"></i>Food</a>
+                                <i class="fas fa-shopping-basket"></i>Food</a>
                             <!-- <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a> -->
                         </li>
                         <li>
                             <a href="/admvwmedicine">
-                                <i class="far fa-check-square"></i>Medicine</a>
+                                <i class="fas fa-medkit"></i>Medicine</a>
                             <!-- <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a> -->
                         </li>
@@ -519,9 +519,9 @@
                                             </div>
                                         </form> -->
                                     <!-- </div>  -->
-                                </div>
+                                <!-- </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Company</strong>
@@ -560,8 +560,8 @@
                                         </div>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Basic Form</strong> Elements
@@ -828,8 +828,8 @@
                                         </button>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div> -->
+                            <!-- <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Horizontal</strong> Form
@@ -960,14 +960,14 @@
                                         </button>
                                     </div>
                                 </div> -->
-                                <div class="card">
+                                <!-- <div class="card">
                                     <div class="card-header">
                                         
                                         <strong>Update Covid Reports </strong>
                                     </div>
-                                    <div class="card-body card-block">
+                                    <div class="card-body card-block"> -->
                                        
-                                        <form action="/adminco1/" method="post" class="form-horizontal">
+                                        <!-- <form action="/adminco1/" method="post" class="form-horizontal">
                                             {% for p in pp %}
                                             {% csrf_token %}
                                             
@@ -1014,21 +1014,144 @@
                                                      {
                                                          alert("Updated Successfully")
                                                      }
-                                                 </script>
+                                                 </script> -->
                                                 <!-- <button type="reset" class="btn btn-danger btn-sm">
                                                     <i class="fa fa-ban"></i> Reset
                                                 </button>  -->
-                                            </div>
+                                            <!-- </div>
                                         {% endfor %}
                                             
-                                        </form>
-                                 
-                                    </div>
+                                        </form> -->
+                                  <!-- main body --> <form method="POST" action="/adminco1/" >
+                                   
+      
+      {% csrf_token %}
+
+      {% for p in pp %}
+      <h4 style="color:purple">COVID 19-KERALA</h4><br>
+      
+      <table>
+       
+        <TR>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;"> Total Cases</b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <TD><input type="text" name ="ctotal" value="{{p.ctotal}}" style="width: 20em;height:3em;color: black;font-size: medium;background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <b style="color: maroon;"> Active Cases</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <TD><input type="text" name ="cactive" value="{{p.cactive}}" style="width: 15em;height:3em;color: black;font-size: medium;background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;" >Cured</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <TD><input type="text" name ="cured"value="{{p.cured}}" style="width:20em;height:3em; color: black;font-size: medium;
+      background-color: paleturquoise;" placeholder=" Type here"  required ></TD>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;">Deaths</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <TD><input type="text" name ="death" value="{{p.death}}"style="width:11em;height:3em; color: black;font-size: medium;
+      background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+    </TR>
+    </table><br>
+    <h4 style="color:purple">COVID 19-INDIA</h4>
+
+    <table>
+       
+        <TR>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;"> Total Cases</b>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <TD><input type="text" name ="ind" value="{{p.india}}" style="width: 20em;height:3em;color: black;font-size: medium;background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <b style="color: maroon;"> Active Cases</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <TD><input type="text" name ="inda" value="{{p.i_active}}" style="width: 15em;height:3em;color: black;font-size: medium;background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;" >Cured</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <TD><input type="text" name ="indr"value="{{p.i_recoverd}}" style="width:20em;height:3em; color: black;font-size: medium;
+      background-color: paleturquoise;" placeholder=" Type here"  required ></TD>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;">Deaths</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <TD><input type="text" name ="indt" value="{{p.i_death}}"style="width:11em;height:3em; color: black;font-size: medium;
+      background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+    </TR>
+    </table><br>
+
+    
+   <h4 style="color:purple">COVID 19-WORLD</h4>
+   <table>
+       
+    <TR>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;"> Total Cases</b>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+  <TD><input  type="text" name ="wl" value="{{p.world}}" style="width: 20em;height:3em;color: black;font-size: medium;background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <b style="color: maroon;"> Active Cases</b>&nbsp;&nbsp;
+   <TD><input type="text" name ="wla" value="{{p.w_active}}" style="width: 15em;height:3em;color: black;font-size: medium;background-color: paleturquoise;" placeholder=" Type here" required >
+
+</TD>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <b style="color: maroon;" >Cured</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <TD><input type="text" name ="wlr"value="{{p.w_recoverd}}" style="width:20em;height:3em; color: black;font-size: medium;
+  background-color: paleturquoise;" placeholder=" Type here"  required ></TD>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color: maroon;">Deaths</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<TD><input type="text" name ="wld" value="{{p.w_death}}"style="width:11em;height:3em; color: black;font-size: medium;
+  background-color: paleturquoise;" placeholder=" Type here" required ></TD>
+</TR>
+</table><br>
+   {% endfor %}
+         <!--<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category:&nbsp;&nbsp;</label>
+                 <select id="cate" name="cate"  style="width:19em;">
+                 
+        <option value="date">mobile</option>
+                   
+                    <option value="amount">dth </option>
+                    <option value="date">water</option>
+                   
+                    <option value="amount">electricity </option>
+                    </select>-->
+                   
+                   
+                  
+<br>
+<table>   <style>td{color:#FFFFFF; background-color:white;width: 3em;}
+  th{color:#FFFFFF; background-color:white;width: fit-content;}</style><TR>
+
+  <Button type = "submit" class ="fas fa-edit" id = "clickme" value="EDIT & UPDATE NEWS"  onclick="myFunction()"
+  style="background-color:red;color:#FFFFFF;height: 3em; width: 14em;border-radius: 20em;"> Update</Button>
+
+  <script>
+    function myFunction()
+    {
+        alert("Updated Successfully")
+    }
+</script>
+
+</TR></table>
+</form>
+                                    <!-- </div>
                                    
                                 </div>
                                 
-                            </div>
-                            <div class="col-lg-6">
+                            </div> -->
+                            <!-- <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Validation states</strong> Form
@@ -1044,8 +1167,8 @@
                                         </div>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Validation states</strong> with optional icons
@@ -1066,8 +1189,8 @@
                                         </div>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Icon/Text</strong> Groups
@@ -1116,8 +1239,8 @@
                                         </button>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Buttons</strong> Groups
@@ -1174,8 +1297,8 @@
                                         </button>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         <strong>Dropdowns</strong> Groups
@@ -1262,8 +1385,8 @@
                                         </button>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         Use the grid for big devices!
@@ -1325,8 +1448,8 @@
                                         <button class="btn btn-success btn-sm">Action</button>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">
                                         Input Grid for small devices!
@@ -1425,8 +1548,8 @@
                                         </form>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">Example Form</div>
                                     <div class="card-body card-block">
@@ -1461,8 +1584,8 @@
                                         </form>
                                     </div>
                                 </div> -->
-                            </div>
-                            <div class="col-lg-6">
+                            <!-- </div>
+                            <div class="col-lg-6"> -->
                                 <!-- <div class="card">
                                     <div class="card-header">Example Form</div>
                                     <div class="card-body card-block">
@@ -1497,8 +1620,8 @@
                                         </form>
                                     </div>
                                 </div> -->
-                            </div>
-                        </div>
+                            <!-- </div>
+                        </div> -->
                         <!-- <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -1506,12 +1629,12 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
+                    <!-- </div>
                 </div>
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <!-- Jquery JS-->
     <script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>

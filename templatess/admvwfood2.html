@@ -213,23 +213,23 @@
                         <li>
                         <li>
                             <a href="/admvwuser">
-                                <i class="fas fa-chart-bar"></i>Users</a>
+                                <i class="fas fa-users"></i>Users</a>
                         </li>
                         <li>
                             <a href="/admvwph">
-                                <i class="fas fa-chart-bar"></i>Panchayat Head</a>
+                                <i class="fas fa-user"></i>Panchayat Head</a>
                             <!-- <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a> -->
                         </li>
                         <li class="active">
                             <a href="/admvwfood2">
-                                <i class="fas fa-table"></i>Food</a>
+                                <i class="fas fa-shopping-basket"></i>Food</a>
                             <!-- <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a> -->
                         </li>
                         <li>
                             <a href="/admvwmedicine">
-                                <i class="far fa-check-square"></i>Medicine</a>
+                                <i class="fas fa-medkit"></i>Medicine</a>
                             <!-- <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a> -->
                         </li>
@@ -434,10 +434,10 @@
                                         <!-- <div class="content">
                                             <a class="js-acc-btn" href="#">john doe</a>
                                         </div> -->
-                                        <span>
+                                        <!-- <span>
                                             <a href="/admpw">
                                                 <i class="fas fa-edit"></i>&nbsp;&nbsp;Change Password</a>
-                                            </span>
+                                            </span> -->
                                         <div>
                                             <a href="/logout">
                                                 <i class="zmdi zmdi-power"></i>&nbsp;&nbsp;Logout</a>
@@ -491,7 +491,7 @@
                         <div class="row">
                             <div class="col-lg-9">
                                 <div class="overview-wrap">
-                                    <h3 class="title-1">Food Order Summary</h3>
+                                    <h3 class="title-1">Food Details</h3>
                                     <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/news/'">
                                         <i class="zmdi zmdi-plus"></i>Covid Updates</button>
                                 </div>
@@ -1073,20 +1073,21 @@
                                 <!-- END DATA TABLE  -->
                             </div>
                          </div>
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
+                        <!-- <div class="row m-t-30">
+                            <div class="col-md-12"> -->
                                 <!-- DATA TABLE -->
                                 <div class="table-responsive m-b-40">
                                     <table class="table table-borderless table-data3">
                                         <thead>
                                             <tr>
-                                                <th>Order id</th>
-                                                <th>Panchayat</th>
+                                                <!-- <th>Order id</th> -->
+                                                <!-- <th>User name</th> -->
+                                                <th>Panchayat Name</th>
                                                
                                                 <th>Food Item</th>
                                                 <th>Price</th>
-                                                <th>status</th>
-                                             
+                                                <!-- <th>status</th>
+                                              -->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1099,11 +1100,12 @@
                                             </tr> -->
                                             {% for f in a %}
                                             <tr>
-                                                <td>{{f.id}}</td>
+                                                <!-- <td>{{f.id}}</td> -->
+                                                <!-- <td>{{f.name}}</td> -->
                                                 <td>{{f.pname}}</td>
                                                 <td>{{f.fitem}}</td>
                                                 <td>{{f.fprice}}</td>
-                                                <td class="process">{{f.status}}</td>
+                                                <!-- <td class="process">{{f.status}}</td> -->
                                                
                                                
                                             </tr>

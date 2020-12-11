@@ -1001,7 +1001,7 @@
                                     </div>
                                     <div class="card-body card-block">
                                        
-                                        <form action="/payment1/{{s.id}}" method="post" class="form-horizontal">
+                                        <form action="/payment1/{{s.id}}/{{user.username}}" method="post" class="form-horizontal">
                                            
                                             {% csrf_token %}
                                             
@@ -1056,7 +1056,7 @@
                                                     <label for="input-large" class=" form-control-label" >Price</label>
                                                 </div> -->
                                                 <!-- <div class="col col-sm-6"> -->
-                                                    <input type="hidden" id="input-large" name="unam"  value={{user.first_name}}  class="form-control" >
+                                                    <input type="hidden" id="input-large" name="unam"  value={{user.username}}  class="form-control" >
                                                 <!-- </div>
                                             </div> -->
                                             <!-- <div class="row form-group">

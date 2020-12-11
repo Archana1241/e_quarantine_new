@@ -189,7 +189,7 @@
                             <a href="/phome">
                                 <i class="fas fa-desktop"></i>Home</a></li>
                                 <li >
-                                    <a href="/confirmuser">
+                                    <a href="/confirmuser/{{user.first_name}}">
                                         
                                         <i class="fas fa-user"></i>User Confirmation</a>
                                 </li>
@@ -209,6 +209,12 @@
                                 <i class="fas fa-medkit"></i>Health care</a>
                             <!-- <a href="form.html">
                                 <i class="far fa-check-square"></i>Forms</a> -->
+                        </li>
+
+                        <li>
+                            <a href="/phnotification/{{user.first_name}}">
+                            <i class="fas fa-bell"></i>
+                            <span class="bot-line"></span>Notifications</a>
                         </li>
 <!--                        
                         <li>
@@ -294,8 +300,8 @@
                             <div class="header-button">
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
+                                        <!-- <i class="zmdi zmdi-comment-more"></i>
+                                        <span class="quantity">1</span> -->
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
                                                 <p>You have 2 news message</p>
@@ -326,8 +332,8 @@
                                         </div>
                                     </div>
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
+                                        <!-- <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity">1</span> -->
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
                                                 <p>You have 3 New Emails</p>
@@ -364,9 +370,12 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
+                                        <!-- <i class="zmdi zmdi-notifications"></i>
+                                        <span class="quantity">3</span> -->
                                         <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__title">
                                                 <p>You have 3 Notifications</p>
@@ -380,6 +389,8 @@
                                                     <span class="date">April 12, 2018 06:50</span>
                                                 </div>
                                             </div>
+
+
                                             <div class="notifi__item">
                                                 <div class="bg-c2 img-cir img-40">
                                                     <i class="zmdi zmdi-account-box"></i>
@@ -468,17 +479,35 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="overview-wrap">
+                                {% if messages %}
+                                <ul class ="messages">
+                                  {% for message in messages %}
+                                  
+                                  
+                              
+                            <h6 style="list-style: none; font-family:'Times New Roman', Times, serif; 
+                            background-color: blue;color: white;box-shadow: 12px 12px 12px#83f051;">
+                                  {% if message.tags %} <class={{message.tags}}{% endif %}> 
+                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{message}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                              </h6>
+                                  {% endfor %}
+                                  </ul>
+                                  {% endif %}
                                 <!-- <h3 class="title-1">Registered Users</h3> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletefood'">
+                                
+                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletefood/{{user.username}}/{{user.first_name}}'">
                                     
-                                    View Food Orders</button><br>
+                                    View Food Details</button><br>
                             </div>
                             <br><br><br><br>
                             <!-- <div class="col-lg-6"> -->
