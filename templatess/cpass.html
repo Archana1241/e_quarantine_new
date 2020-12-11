@@ -80,13 +80,13 @@
                             <form action="" id="form1" method="post" onsubmit="return myfun()">{% csrf_token %}
                                 <div class="form-group">
                                     <label>OTP</label>
-                                    <input class="au-input au-input--full" type="text" name="onetp" id="onetp" placeholder="OTP">
+                                    <input class="au-input au-input--full" type="text" name="onetp" id="onetp" placeholder="OTP" autocomplete="off">
                                     <span id="messagess" style="color: red;"></span><br>
                                     <label>New Password</label>
-                                    <input class="au-input au-input--full" type="text" name="pass" placeholder="New Password" value="" id="password">
+                                    <input class="au-input au-input--full" type="text" name="pass" placeholder="New Password" value="" id="password" autocomplete="off">
                                     <span id="messages" style="color: red;"></span><br>
                                     <label>Confirm Password</label>
-                                    <input class="au-input au-input--full" type="text" name="cpass" placeholder="Confirm Password" value="" id="passwords">
+                                    <input class="au-input au-input--full" type="text" name="cpass" placeholder="Confirm Password" value="" id="passwords" autocomplete="off">
                                     <span id="messagess"></span><br>
                                     <!-- {% for m in messages %}
                                     <span style="color: red;">{{m.message}}</span>

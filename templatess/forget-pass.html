@@ -56,7 +56,7 @@
                             <form action="" method="post">{% csrf_token %}
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" id="email" placeholder="Email"><br>
+                                    <input class="au-input au-input--full" type="email" name="email" id="email" placeholder="Email" autocomplete="off"><br>
                                     {% for m in messages %}
                                     <span style="color: red;">{{m.message}}</span>
 					                
