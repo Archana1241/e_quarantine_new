@@ -8,10 +8,85 @@
 
     </head>
     <body class="p-3" style="text-align: center;">
-        <h1>Covid-19  UPDATES OF INDIA</h1>
+        <h1>Covid-19 Global Data</h1>
         <br>
-        <!-- <pre>{{globalSummary}}</pre> -->
         <div class="container-fluid">
+            <div class = "row">
+               <div class="card-columns">
+                   <div class="card " > 
+                       <img class="card-img-top" >
+                       <div class="card-body" style="background-color: blue; color: white;" >
+                           <h4 class="card-title">New Confirmed</h4>
+                           <p class="card-text">{{globalSummary.NewConfirmed}}</p>
+                       </div>
+                   </div>
+                   <div class="card ">
+                    <img class="card-img-top" style="height: 10; width: 10;" >
+                    <div class="card-body" style="background-color:pink; color: white;">
+                        <h4 class="card-title">Total Confirmed</h4>
+                        <p class="card-text">{{globalSummary.TotalConfirmed}}</p>
+                    </div>
+                </div>
+                <div class="card ">
+                    <img class="card-img-top" >
+                    <div class="card-body" style="background-color:firebrick; color: white;" >
+                        <h4 class="card-title">New Deaths</h4>
+                        <p class="card-text">{{globalSummary.NewDeaths}}</p>
+                    </div>
+                </div>
+                <div class="card ">
+                    <img class="card-img-top" >
+                    <div class="card-body"style="background-color:#32CD32; color: white;" >
+                        <h4 class="card-title">Total Deaths</h4>
+                        <p class="card-text">{{globalSummary.TotalDeaths}}</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" >
+                    <div class="card-body"style="background-color: tomato; color: white;" >
+                        <h4 class="card-title">New Recovered</h4>
+                        <p class="card-text">{{globalSummary.NewRecovered}}</p>
+                    </div>
+                </div>
+                <div class="card  ">
+                    <img class="card-img-top" >
+                    <div class="card-body" style="background-color:2E8B57; color: white;">
+                        <h4 class="card-title">Total Recovered</h4>
+                        <p class="card-text">{{globalSummary.TotalRecovered}}</p>
+                    </div>
+                </div>
+
+               </div>
+
+                <hr>
+               <h4 class="alert-alert-light border rounded" style="color: red;">Country Wise Summary</h4>
+               <hr>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sno.</th>
+                       <th>Country</th>
+                       <th>Total Confirmed</th>
+                       <th>Total Deaths</th>
+                       <th>Total Recovered</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    {% for c in countries %}
+                    <tr>
+                       <td>{{forloop.counter}}</td>
+                       <td>{{c.Country}}</td>
+                       <td>{{c.TotalConfirmed}}</td>
+                       <td>{{c.TotalDeaths}}</td>
+                       <td>{{c.TotalRecovered}}</td>
+                       <td></td>
+                    </tr>
+                    {% endfor %}
+                 </tbody>
+              </table>
+
+        <!-- <pre>{{globalSummary}}</pre> -->
+        <!-- <div class="container-fluid">
             <div class = "row">
                <div class="card-columns">
                    <div class="card " > 
@@ -73,11 +148,13 @@
                     </div>
                 </div>
 
-               </div>
+               </div> -->
                
-
+               
+               <br>
                <hr>
-               <h4 class="alert-alert-light border rounded" >COVID-19 India State Wise Summary </h4>
+               
+               <h4 class="alert-alert-light border rounded" style="color: red;">COVID-19 India State Wise Summary </h4>
                <hr>
                
               <table class="table">
