@@ -480,7 +480,7 @@ def logincheck(request):
                           
                   else:
                       
-                      messages.info(request, 'invalid username/password')
+                      messages.info(request, 'Invalid username/password')
                       return render(request, 'indexlogin1.html')
             else:
                 messages.info(request,'Your account is deactivated')    
@@ -496,7 +496,7 @@ def logincheck(request):
                      else:
                          return redirect('uhome')
                  else:
-                     messages.info(request, 'invalid username/password')
+                     messages.info(request, 'Invalid username/password')
                      return render(request, 'indexlogin1.html')
              else:
                  messages.info(request,'Your account is deactivated')    
@@ -507,7 +507,7 @@ def logincheck(request):
                 auth.login(request, user)
                 return redirect('indexadmin')
              else:
-                 messages.info(request, 'invalid username/password')
+                 messages.info(request, 'Invalid username/password')
                  return render(request, 'indexlogin1.html')
     else:             
         return render(request, 'indexlogin1.html')
@@ -528,7 +528,7 @@ def forgotpass(request):
             sendOtpToMAil(mailAddr, p)
             return redirect("http://localhost:8000/cpass")
         else:
-            messages.error(request,"Not a registered User")
+            messages.error(request,"Not a Registered User")
         
     return render(request, "forget-pass.html")
 
