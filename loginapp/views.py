@@ -547,7 +547,7 @@ def otp_pass(request):
 
             return redirect("http://localhost:8000/indexlogin1/")
         else:
-            messages.error(request,"OTP is not correct")
+            messages.error(request,"Please Enter a Valid OTP")
         
     return render(request, "cpass.html")
 
@@ -564,7 +564,7 @@ def OTPgenerator():
 
 def sendOtpToMAil(mailAddr, otp):
     subject = 'EQS - OTP for Changing Password'
-    message = 'Hello,\nHere is the OTP for changing the Password of your account:'+ str(otp)
+    message = 'Hello,\n The One Time Password(OTP) for changing the Password of your account is : '+ str(otp)
     
     mailAddr = str(mailAddr)
     recepient = str(mailAddr)
