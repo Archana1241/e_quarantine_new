@@ -1,0 +1,309 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Panchayat Head Registration</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<a href="/logout" style="color:black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> <u>Back to home</u></b></a>
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="/static/images/regph.jpg" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form" method="POST" action="/signupph/">
+					{% csrf_token %}
+					{% for m in messages %}
+					<b style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{m.message}}</b>
+					{% endfor %}<br>
+					<span class="login100-form-title">
+						 Panchayat Head Registration
+					</span>
+					<!-- <select name="scat" class="input100" value="0"> -->
+							<!-- <option value=0>Select Designation </option> -->
+							<!-- <option value="pres">President</option> -->
+							<!-- <option value="sec">Secretary</option> -->
+							
+		
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="state" value="Kerala">
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						</span>
+					</div>
+					<!-- <select name="scat" class="input100" value="0"> -->
+							<!-- <option value=0>Select Designation </option> -->
+							<!-- <option value="pres">President</option> -->
+							<!-- <option value="sec">Secretary</option> -->
+							
+						 <!-- </select> -->
+					<div class="wrap-input100 validate-input">
+						<select name="district" class="input100" value="">
+							<option value=0>Select District </option>
+							<option value="kottayam">Kottayam </option> 
+							<option value="idukki">Idukki</option> 
+							</select>
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input">
+						<select name="pname" class="input100" value="">
+							<option value=0>Select Panchayat </option>
+							<option value="kigandoor">Kidangoor </option> 
+							<option value="mutholy">Mutholy</option>
+							 <option value="paika">Paika</option> 
+							 <option value="elappara">Elappara</option>
+							 </select>
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						</span>
+					</div>
+					<!-- <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="pname" placeholder="Panchayat Name"> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span>
+					</div> -->
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="cperson" placeholder="Contact person">
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="mob" placeholder="Phone no" pattern="\d{10}" required>
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						</span>
+					</div>
+
+					<!-- <div class="wrap-input100 validate-input" data-validate = "Password is required"> -->
+						<!-- <input class="input100" type="text" name="lname" placeholder="Last name"> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="age" placeholder="Age"> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="pan" placeholder="Panchayat">
+						 -->
+						 <!-- <select name="scat" class="input100" value="0"> -->
+							<!-- <option value=0>Select Designation </option> -->
+							<!-- <option value="pres">President</option> -->
+							<!-- <option value="sec">Secretary</option> -->
+							
+						 <!-- </select> -->
+						<!-- <span class="focus-input100"></span>  -->
+						 <!-- <span class="symbol-input100">  -->
+							 <!-- <i class="fa fa-envelope" aria-hidden="true"></i>  -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="pan" placeholder="Panchayat">
+						 -->
+						 <!--<select name="scat" class="input100" value="0">
+							<option value=0>Select Panchayat </option>
+							<option value="kid">Kidangoor</option>
+							<option value="paika">Paika</option>
+							<option value="Mutholy">Mutholy</option>
+							<option value="kozhuvanal">Kozhuvanal</option>
+						 </select>
+						<!-- <span class="focus-input100"></span>  -->
+						 <!-- <span class="symbol-input100">  -->
+							 <!-- <i class="fa fa-envelope" aria-hidden="true"></i>  -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!--<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="district" placeholder="District">
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					
+					
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="mob" placeholder="Mobile" pattern="\d{10}" required> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="hname" placeholder="House Name"> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="place" placeholder="Place"> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!-- <div class="wrap-input100 validate-input"> -->
+						<!-- <input class="input100" type="text" name="district" placeholder="District"> -->
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+				
+					
+					<!--<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="state" placeholder="State">
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!--<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="pin" placeholder="Pin" pattern="\d{6}" required>
+						<!-- <span class="focus-input100"></span> -->
+						<!-- <span class="symbol-input100"> -->
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+						<!-- </span> -->
+					<!-- </div> -->
+					<!--<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="pan" placeholder="Panchayat">
+						
+						
+						<!-- <span class="focus-input100"></span>  -->
+						 <!-- <span class="symbol-input100">  -->
+							 <!-- <i class="fa fa-envelope" aria-hidden="true"></i>  -->
+						<!-- ?</span> -->
+					<!-- </div> -->
+					
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="email" name="uname" placeholder="Email">
+						<span class="focus-input100"></span>
+						 <span class="symbol-input100"> 
+							 <i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pwdd" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100"> 
+							 <i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pwdd1" placeholder="Confirm Password">
+						<span class="focus-input100"></span>
+						 <span class="symbol-input100">
+							 <i class="fa fa-lock" aria-hidden="true"></i> 
+						</span>
+					</div>
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn" >SIGNUP</button>
+
+						<!-- <script>
+							function myFunction()
+							{
+								alert("Registered Successfully")
+							}
+						</script> -->
+					</div>
+					<!-- <div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div> -->
+
+					<!-- <div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							User Registration
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+
+						</a>
+						<br><a class="txt2" href="#">
+							Panchayat head Registration
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div> -->
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
