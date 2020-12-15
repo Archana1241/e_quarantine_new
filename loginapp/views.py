@@ -9,6 +9,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.views.generic import View
 from django.template.loader import get_template
+
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
 import requests
 from . models import u_reg
 from . models import p_reg
@@ -16,9 +21,11 @@ from . models import cnews
 from . models import food
 from . models import medicine
 from . models import doctor
+from . models import FeedBackUser
 from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
+import json
 import math, random
 #email
 from e_quarantine.settings import EMAIL_HOST_USER
@@ -569,4 +576,44 @@ def sendOtpToMAil(mailAddr, otp):
     mailAddr = str(mailAddr)
     recepient = str(mailAddr)
     send_mail(subject, message, EMAIL_HOST_USER, [recepient], fail_silently=False)
+
+
+def userfeedback(request):
+    
+    feedback_data=FeedBackUser.objects.all()
+    return render(request,"user_feedback_template.html",{"feedback_data":feedback_data})
+
+def user_feedback_save(request):
+    if request.method!="POST":
+        return HttpResponseRedirect(reverse("userfeedback"))
+    else:
+        feedback_msg=request.POST.get("feedback_msg")
+
+        # user_obj=u_reg.objects.get(id=request.user.id)
+        try:
+            feedback=FeedBackUser( feedback=feedback_msg,feedback_reply="")
+            feedback.save()
+            messages.success(request, "Successfully Sent Feedback")
+            return HttpResponseRedirect(reverse("userfeedback"))
+        except:
+            messages.error(request, "Failed To Send Feedback")
+            return HttpResponseRedirect(reverse("userfeedback"))
+
+def user_feedback_message(request):
+    feedbacks=FeedBackUser.objects.all()
+    return render(request,"phuser_feedback_template.html",{"feedbacks":feedbacks})
+
+@csrf_exempt
+def user_feedback_message_replied(request):
+    feedback_id=request.POST.get("id")
+    feedback_message=request.POST.get("message")
+
+    try:
+        feedback=FeedBackUser.objects.get(id=feedback_id)
+        feedback.feedback_reply=feedback_message
+        feedback.save()
+        return HttpResponse("True")
+    except:
+        return HttpResponse("False")
+
                         

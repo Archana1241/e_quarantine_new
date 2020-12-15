@@ -5,6 +5,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.views.decorators.csrf import csrf_exempt
+
 
 urlpatterns = [
     
@@ -55,4 +57,8 @@ urlpatterns = [
     path('signupph/',views.signupph, name='signupph'),
     path('fpass/',views.forgotpass, name='fpass'),
     path('cpass/',views.otp_pass, name='cpass'),
+    path('userfeedback/', views.userfeedback, name="userfeedback"),
+    path('user_feedback_save/', views.user_feedback_save, name="user_feedback_save"),
+    path('user_feedback_message/', views.user_feedback_message,name="user_feedback_message"),
+    path('user_feedback_message_replied/', views.user_feedback_message_replied,name="user_feedback_message_replied"),
 ]

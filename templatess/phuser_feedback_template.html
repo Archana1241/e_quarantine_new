@@ -11,7 +11,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Add medicine</title>
+    <title>Feedback</title>
 
     <!-- Fontfaces CSS-->
     <link href="{% static 'css/font-face.css' %}" rel="stylesheet" media="all">
@@ -33,6 +33,48 @@
 
     <!-- Main CSS-->
     <link href="{% static 'css/theme.css' %}" rel="stylesheet" media="all">
+
+    <script>
+        $(document).ready(function(){
+            $(".reply_open_modal").click(function(){
+                var id=$(this).parents("tr").children("td:eq(0)").text();
+                var name=$(this).parents("tr").children("td:eq(2)").text();
+                $("#reply_id").val(id);
+                $("#reply_name").text(name);
+            });
+    
+    
+            $(document).on("click","#reply_btn",function(){
+    
+                    $(this).attr("disabled","disabled")
+                    $(this).text("Sending Reply...")
+    
+                    var id=$("#reply_id").val();
+                    var message=$("#reply_message").val();
+    
+                    $.ajax({
+                            url:'http://127.0.0.1:8000/user_feedback_message_replied/',
+                            type:'POST',
+                            data:{id:id,message:message},
+                        })
+                        .done(function(response){
+    
+                            if(response=="True"){
+                                alert("Reply Sent")
+                            }
+                            else{
+                                alert("Error in Sending Reply")
+                            }
+                            location.reload()
+                        })
+                        .fail(function(){
+                            alert("Error in Sending Reply")
+                        })
+               });
+    
+        });
+    </script>  
+    
 
 </head>
 
@@ -109,6 +151,7 @@
                                 <li>
                                     <a href="forget-pass.html">Forget Password</a>
                                 </li>
+                                
                             </ul>
                         </li>
                         <li class="has-sub">
@@ -185,36 +228,50 @@
                                 </li>
                             </ul>
                         </li> -->
-                        <li>
-                            <a href="/phome">
+                        <!-- <li>
+                            <a href="/home">
                                 <i class="fas fa-desktop"></i>Home</a></li>
-                                <li >
-                                    <a href="/confirmuser/{{user.first_name}}">
-                                        
-                                        <i class="fas fa-user"></i>User Confirmation</a>
-                                </li>
-                        <li>
-                            <a href="/addfood1">
+                         <li> -->
+                        <!-- <li class="active">
+                            <a href="/addfood">
                                 
                                 <i class="fas fa-shopping-basket"></i>Food</a>
-                        </li>
-                        <li class="active">
+                        </li>  -->
+                        <!-- <li>
                             <a href="/addmedicine">
                                 <i class="fas fa-copy"></i>Medicine</a>
                             <!-- <a href="table.html">
                                 <i class="fas fa-table"></i>Tables</a> -->
-                        </li>
-                        <li class="">
+                        <!-- </li> --> 
+                        <!-- <li class="">
                             <a href="/care">
-                                <i class="fas fa-medkit"></i>Health care</a>
-                            <!-- <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a> -->
+                                <i class="fas fa-tachometer-alt"></i>Health care</a>
+                            <a href="form.html">
+                                <i class="far fa-check-square"></i>Forms</a> 
+                        </li> --> 
+                        <li>
+                            <a href="/uhome">
+                                <i class="fas fa-home"></i>Home</a></li>
+                        <li>
+                        <li>
+                            <a href="/foodorder">
+                                <i class="fas fa-coffee"></i>Food</a>
+                        </li>
+                        <li class="active">
+                        
+                            <a href="/medicineorder">
+                                <i class="fas fa-plus-circle"></i>Medicine</a>
                         </li>
                         <li>
-                            <a href="/phnotification/{{user.first_name}}">
-                            <i class="fas fa-bell"></i>
-                            <span class="bot-line"></span>Notifications</a>
+                            <a href="/vwdoctor">
+                                <i class="fas fa-ambulance"></i>Health Care</a>
                         </li>
+                        <li>
+                            <a href="/userfeedback/">
+                                <i class="fas fa-medkit"></i>Feedback</a>
+                        </li>
+                        
+                       
                         <!-- <li>
                             <a href="calendar.html">
                                 <i class="fas fa-calendar-alt"></i>Calendar</a> -->
@@ -292,7 +349,7 @@
                                 <!-- <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." /> -->
                                 
                                 <div class="account-dropdown__footer">
-                                    <h6 style="color: red;">  {{user.first_name}} Gramapanchayat</h6>
+                                    <h6 style="color: red;">  {{user.username}}</h6>
                                  </div>
                             </form>
                             <div class="header-button">
@@ -472,38 +529,17 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="overview-wrap">
-
-                                {% if messages %}
-                                <ul class ="messages">
-                                  {% for message in messages %}
-                                  
-                                  
-                              
-                            <h6 style="list-style: none; font-family:'Times New Roman', Times, serif; 
-                            background-color: blue;color: white;box-shadow: 12px 12px 12px#83f051;">
-                                  {% if message.tags %} <class={{message.tags}}{% endif %}> 
-                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                {{message}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                
-                              </h6>
-                                  {% endfor %}
-                                  </ul>
-                                  {% endif %}
-                                <!-- <h3 class="title-1">Registered Users</h3> -->
+                                <!-- <h3 class="title-1">Registered Users</h3> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                               
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 
-                                <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href='/deletemedicine/{{user.username}}/{{user.first_name}}'">
+                                <!-- <button class="au-btn au-btn-icon au-btn--blue" onclick="window.location.href=''">
                                     
-                                    View Medicine Details</button><br>
+                                    Edit/Delete</button><br> -->
                             </div>
                             <br><br><br><br>
                             <!-- <div class="col-lg-6"> -->
@@ -1001,77 +1037,76 @@
                                         </button>
                                     </div>
                                 </div> -->
-                                <div class="card">
-                                    <div class="card-header">
-                                        
-                                        <strong>ADD MEDICINE </strong>
-                                    </div>
-                                    <div class="card-body card-block">
-                                       
-                                        <form action="/addmedicine/" method="post" class="form-horizontal">
-                                           
-                                            {% csrf_token %}
-                                            
-                                            <!-- <div class="row form-group">
-                                               
-                                                <div class="col col-sm-5">
-                                                    <label for="input-small" class=" form-control-label">Food Type</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                   
-                                                    <input type="text" id="input-small" name="ftype"  class="form-control" placeholder="">
-                                                </div>
-                                            </div> -->
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-
-                                                    <input type="hidden" name =uname value={{user.username}}>
-                                            <input type="hidden" name =sp value={{user.first_name}}>
-                                                    <label for="input-normal" class=" form-control-label">Medicine Name</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-normal" name="mname"   class="form-control" >
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Quantity</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="quantity"  placeholder="(no of strips)" class="form-control" >
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-sm-5">
-                                                    <label for="input-large" class=" form-control-label">Price</label>
-                                                </div>
-                                                <div class="col col-sm-6">
-                                                    <input type="text" id="input-large" name="mprice"  placeholder="(per strips)" class="form-control" >
-                                                </div>
-                                            </div>
-                                            <div class="card-footer">
-                                                <button type="submit" class="btn btn-primary btn-sm" value="Submit" onclick="myFunction()">
-                                                     <i class="fa fa-dot-circle-o"></i> Add
-                                                 </button>
-                                                 <script>
-                                                     function myFunction()
-                                                     {
-                                                         alert("Added Successfully")
-                                                     }
-                                                 </script>
-                                                <!-- <button type="reset" class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-ban"></i> Reset
-                                                </button>  -->
-                                            </div>
-                                        
-                                            
-                                        </form>
-                                 
-                                    </div>
-                                   
-                                </div>
                                 
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                      <h3 class="card-title">Student Feedback</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <!-- form start -->
+                                      <div class="table">
+                                          <table class="table">
+                                              <tr>
+                                                  <th>ID</th>
+                                                  <!-- <th>Student ID</th>
+                                                  <th>Student Name</th>
+                                                  <th>Student Session</th> -->
+                                                  <th>Message</th>
+                                                  <th>Sended On</th>
+                                                  <th>Reply</th>
+                                              </tr>
+                                              {% for feedback in feedbacks %}
+                                              <tr>
+                                                  <td>{{ feedback.id }}</td>
+                                                  <!-- <td>{{ feedback.student_id.admin.id }}</td> -->
+                                                  <!-- <td>{{ feedback.student_id.admin.first_name }} {{ feedback.student_id.admin.last_name }}</td> -->
+                                                  <!-- <td>{{ feedback.student_id.session_year_id.session_start_year }} - {{ feedback.student_id.session_year_id.session_end_year }}</td> -->
+                                                  <td>{{ feedback.feedback }}</td>
+                                                  <td>{{ feedback.created_at }}</td>
+                                                  <td>
+                                                      {% if feedback.feedback_reply == "" %}
+                                                      <button class="btn btn-success reply_open_modal" data-toggle="modal" data-target="#reply_modal">Reply</button>
+                                                      {% else %}
+                                                      {{ feedback.feedback_reply }}
+                                                      {% endif %}
+                                                  </td>
+                      
+                                              </tr>
+                                              {% endfor %}
+                                          </table>
+                                      </div>
+
+
+                      
+                                  </div>   
                             </div>
+
+                            <div class="modal fade" id="reply_modal" role="dialog">
+                                <div class="modal-dialog">
+                            
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Reply</h4>
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Reply To : <span id="reply_name"></span></p>
+                                        <input type="hidden" id="reply_id" name="reply_id">
+                                        <textarea class="form-control" rows="5" id="reply_message"></textarea>
+                                        <button id="reply_btn" class="btn btn-info btn-block">Reply</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                            
+                                </div>
+                              </div>
+
+                              
+                            <!-- </div> -->
                             <div class="col-lg-6">
                                 <!-- <div class="card">
                                     <div class="card-header">
