@@ -85,4 +85,10 @@ class payment(models.Model):
     expno=models.CharField(max_length=100)
     cvv=models.IntegerField()
     
-       
+class complaints(models.Model):
+    uname=models.CharField(max_length=100)
+    spname =models.CharField(max_length=100)
+    details = models.TextField() 
+    replay = models.TextField()
+    status =models.TextField()
+    r_status = models.TextField()  
