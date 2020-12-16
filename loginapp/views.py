@@ -1,4 +1,3 @@
-
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
@@ -16,6 +15,8 @@ from . models import cnews
 from . models import food
 from . models import medicine
 from . models import doctor
+
+from . models import complaints
 from django.core.files.storage import FileSystemStorage
 
 
@@ -448,6 +449,7 @@ def signupph(request):
             phr.save()
             
             return render(request, 'indexlogin1.html') 
+            
         else: 
             messages.info(request,'Password Missmatch')
             return render(request, 'regpanchayat2.html')
@@ -506,3 +508,43 @@ def logincheck(request):
     else:             
         return render(request, 'indexlogin1.html')
 
+def userfeedback(request):
+    sp= User.objects.filter(last_name="ph")
+    return render(request,"userfeedback.html" ,{'sp': sp})
+def care1(request):
+     if request.method == 'POST':
+        uname = request.POST['uname']
+          
+        dtls = request.POST['details']
+        sp = request.POST['sp']
+        cmpls=complaints(uname=uname,spname=sp,details=dtls,replay="null",status="Pending")
+        cmpls.save()
+        # messages.success(request,'Complaint posted successfully ')
+        sp= User.objects.filter(last_name="ph")
+        return render(request, 'userfeedback.html',{'sp': sp})    
+
+def comview(request,spname):
+    co = complaints.objects.filter(spname=spname)
+    return render(request, 'complaintvw.html',{'co': co})   
+
+def newfun(request,id):
+    s=complaints.objects.get(id=id)
+    return render(request, 'addcomreply.html',{'s': s})  
+
+def complaintsave(request,id,spname):
+    if request.method == 'POST':
+        rply = request.POST['reply']
+        sta =request.POST['status']
+    
+        s = complaints.objects.get(id=id,spname=spname)  
+        s.replay = rply
+        s.save()
+        s.status= sta
+        s.save()
+        messages.success(request,'Reply Added Successfully ')
+        return redirect('newfun',id)
+    else:
+        return render(request,'addcomreply.html')  
+def comreply(request,uname):
+    c=complaints.objects.filter(uname=uname)
+    return render(request, 'comreply.html',{'c':c})          
