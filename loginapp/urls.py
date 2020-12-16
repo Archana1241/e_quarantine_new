@@ -6,6 +6,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+
 urlpatterns = [
     
     path('',views.mainhome,name='mainhome'),
@@ -36,8 +37,7 @@ urlpatterns = [
     path('vwdoctor/',views.vwdoctor, name='vwdoctor'),
     path('usetpwd/',views.usetpwd, name='usetpwd'),
     path('phpwd/',views.phpwd, name='phpwd'),
-    # path('admpw/',views.admpw, name='admpw'),
-    # path('usetpwd1/',views.usetpwd1, name='usetpwd1'),
+    
     path('deletefood/<str:uname>/<str:pname>',views.deletefood, name='deletefood'),
     path('deletemedicine/<str:uname>/<str:pname>',views.deletemedicine, name='deletemedicine'),
     path('deletefood1/<int:id>',views.deletefood1, name='deletefood1'),
@@ -51,6 +51,14 @@ urlpatterns = [
     path('payment1/<int:id>/<str:uname>',views.payment1, name='payment1'),
     path('payment2/<int:id>/<str:uname>',views.payment2, name='payment2'),
     path('phnotification/<str:pname>',views.phnotification, name='phnotification'),
-    # path('pay/',views.pay, name='pay'),
+    path('userfeedback/',views.userfeedback, name='userfeedback'),
+    path('newfun/<int:id>',views.newfun, name='newfun'),
+    
+    path('complaintsave/<int:id>/<str:spname>',views.complaintsave, name='complaintsave'),
+    # path('complaintvw/',views.complaintvw, name='complaintvw'),
+    path('comview/<str:spname>',views.comview, name='comview'),
+     path('comreply/<str:uname>', views.comreply, name='comreply'),
     path('signupph/',views.signupph, name='signupph')
-]
+     
+    ]
+
