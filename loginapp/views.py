@@ -17,7 +17,11 @@ from . models import food
 from . models import medicine
 from . models import doctor
 from django.core.files.storage import FileSystemStorage
+
+
 # Create your views here.
+# import math, random
+
 
 def mainhome(request):
     pf = cnews.objects.filter()
@@ -27,6 +31,7 @@ def statistics(request):
     result = None
     globalSummary = None
     countries = None
+    
     while(data):
         try:
             result =requests.get('https://api.covid19api.com/summary')
@@ -500,4 +505,4 @@ def logincheck(request):
                  return render(request, 'indexlogin1.html')
     else:             
         return render(request, 'indexlogin1.html')
-                        
+
