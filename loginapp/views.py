@@ -58,6 +58,9 @@ def medicineorder(request):
 def vwdoctor(request):
     do = doctor.objects.filter()
     return render(request, "vwdoctor.html",{'do':do}) 
+def phvwdoctor(request):
+    do = doctor.objects.filter()
+    return render(request, "phvwdoctor.html",{'do':do})     
 def userfoodorder(request,id):
     s=food.objects.get(id=id)
     return render(request, "userfoodorder.html",{'s':s}) 
@@ -255,21 +258,22 @@ def addmedicine(request):
 def care(request):
     
     return render(request, "care.html")     
-def care1(request):
+def care2(request):
     if request.method == 'POST':
-        res=request.FILES.get('pi1',True)
-        if res==False:
-            pass
-        else:
-            fs=FileSystemStorage()
-            fs.save(res.name, res)
+        # res=request.FILES.get('pi1',True)
+        # if res==False:
+        #     pass
+        # else:
+        #     fs=FileSystemStorage()
+        #     fs.save(res.name, res)
         sp = request.POST['sp']
         dname = request.POST['dname']
         ddep= request.POST['ddep']
         dmob = request.POST['dmob']  
-        dep=doctor(pname=sp,dname=dname,ddep=ddep,dmob=dmob,img=res)
+        dep=doctor(pname=sp,dname=dname,ddep=ddep,dmob=dmob)
         dep.save()
     return render(request, "care.html") 
+
 def phome(request):
     pf1 = cnews.objects.filter()
     # h = u_reg.objects.filter()
@@ -357,7 +361,25 @@ def adminco1(request):
         
         return redirect( '/news')
      else:
-        return render(request,'news.html')       
+        return render(request,'news.html')  
+def updatedoctor(request,id):
+     if request.method == 'POST':
+       dname1=request.POST['dname']
+       ddep1=request.POST['ddep']
+       dmob1=request.POST['dmob']
+       z=doctor.objects.get(id=id)
+       z.dname=dname1
+       z.save()
+       z.ddep=ddep1
+       z.save()
+       z.dmob=dmob1
+       z.save()
+        
+        
+       return redirect( 'editdoctor',id)
+    #    messages.success(request,'Reply Added Successfully ')
+     else:
+       return render(request,'editdoctor.html')              
 def admvwfood2(request):
     a = food.objects.filter() 
     return render(request, "admvwfood2.html",{'a':a}) 
@@ -383,7 +405,10 @@ def deletefood(request,uname,pname):
     
     j = food.objects.filter(uname=uname,pname=pname)
     
-    return render(request,'deletefood.html',{'j':j})   
+    return render(request,'deletefood.html',{'j':j}) 
+def editdoctor(request,id):
+    u=doctor.objects.get(id=id)
+    return render(request,'editdoctor.html',{'u':u})      
 def deletefood1(request,id):
     cc=food.objects.get(id=id)
     
@@ -398,7 +423,13 @@ def deletemedicine1(request,id):
     
     cc1.delete()
     messages.success(request,'One item deleted ')
-    return redirect( 'addmedicine')                   
+    return redirect( 'addmedicine')  
+def deletedoctor(request,id):
+    cc11=doctor.objects.get(id=id)
+    
+    cc11.delete()
+    # messages.success(request,'One item deleted ')
+    return redirect( 'phvwdoctor')                       
 def signupp(request):
    if request.method == 'POST':
         fname = request.POST['fname']
