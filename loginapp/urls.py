@@ -25,6 +25,7 @@ urlpatterns = [
     path('admvwuser/',views.admvwuser, name='admvwuser'),
     path('admvwph/',views.admvwph, name='admvwph'),
     path('adminco1/',views.adminco1, name='adminco1'),
+    path('updatedoctor/<int:id>',views.updatedoctor, name='updatedoctor'),
     path('logout/',views.logout, name='logout'),
     path('deleteph/<str:uname>',views.deleteph, name='deleteph'),
     path('deleteuser/<str:uname>',views.deleteuser, name='deleteuser'),
@@ -33,8 +34,13 @@ urlpatterns = [
     path('addmedicine/',views.addmedicine, name='addmedicine'),
     path('care/',views.care, name='care'),
     path('care1/',views.care1, name='care1'),
+    path('care2/',views.care2, name='care2'),
+    
     path('foodorder/',views.foodorder, name='foodorder'),
     path('vwdoctor/',views.vwdoctor, name='vwdoctor'),
+    path('phvwdoctor/',views.phvwdoctor,name='phvwdoctor'),
+    path('deletedoctor/<int:id>',views.deletedoctor,name='deletedoctor'),
+    path('editdoctor/<int:id>',views.editdoctor,name='editdoctor'),
     path('usetpwd/',views.usetpwd, name='usetpwd'),
     path('phpwd/',views.phpwd, name='phpwd'),
     
